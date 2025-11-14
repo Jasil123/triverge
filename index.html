@@ -510,7 +510,7 @@
             transform: scale(1.02);
         }
 
-        /* Registration Section */
+        /* Enhanced Registration Section */
         .register {
             padding: 6rem 0;
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -526,11 +526,37 @@
             height: 100%;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle fill="%23667eea" opacity="0.03" cx="20" cy="20" r="2"/><circle fill="%23ffd700" opacity="0.05" cx="80" cy="80" r="3"/></svg>') repeat;
             z-index: 0;
+            animation: subtleShift 20s linear infinite;
+        }
+        @keyframes subtleShift {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(10px) translateY(10px); }
+        }
+        .register-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .register-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffd700;
+            border-radius: 50%;
+            animation: registerFloat 10s ease-in-out infinite;
+        }
+        @keyframes registerFloat {
+            0%, 100% { transform: translateY(0) scale(0); opacity: 0; }
+            50% { transform: translateY(-20px) scale(1); opacity: 1; }
         }
         .register-content {
             position: relative;
-            z-index: 1;
-            max-width: 800px;
+            z-index: 2;
+            max-width: 1000px;
             margin: 0 auto;
             text-align: center;
         }
@@ -538,93 +564,158 @@
             color: #333;
             margin-bottom: 3rem;
         }
-        .register-form {
+        .registration-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1.5s ease-out;
+        }
+        .stat-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(102,126,234,0.3);
+            transition: transform 0.3s;
+        }
+        .stat-item:hover {
+            transform: scale(1.1);
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        .google-form-container {
             background: white;
             border-radius: 20px;
-            padding: 3rem;
+            padding: 2rem;
             box-shadow: 0 20px 50px rgba(0,0,0,0.1);
             backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
         }
-        .form-group {
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #555;
-            font-weight: bold;
-        }
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
+        .google-form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            padding: 1rem;
-            border: 2px solid #eee;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: border-color 0.3s, box-shadow 0.3s;
+            height: 6px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #ffd700);
+            z-index: 2;
         }
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 15px rgba(102,126,234,0.2);
-        }
-        .checkbox-group {
+        .google-form-header {
             display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin: 1.5rem 0;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 15px;
+            position: relative;
+            z-index: 3;
         }
-        .checkbox-item {
+        .google-form-header h3 {
+            font-size: 1.8rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
-        .checkbox-item input[type="checkbox"] {
-            width: auto;
+        .google-form-header i {
+            font-size: 2rem;
+            animation: spin 3s linear infinite;
         }
-        .submit-btn {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 1.2rem 3rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.4s;
-            width: 100%;
-            margin-top: 1rem;
-        }
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(102,126,234,0.4);
-        }
-        .success-message {
-            display: none;
-            background: linear-gradient(135deg, #4facfe, #00f2fe);
-            color: white;
-            padding: 2rem;
+        .form-embed-wrapper {
+            position: relative;
             border-radius: 15px;
-            margin-top: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .form-embed-wrapper:hover {
+            transform: scale(1.02);
+        }
+        .google-form-iframe {
+            width: 100%;
+            height: 800px;
+            border: none;
+            display: block;
+            border-radius: 15px;
+        }
+        .form-sidebar {
+            position: absolute;
+            top: 100px;
+            right: -200px;
+            width: 200px;
+            height: 600px;
+            background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(102,126,234,0.1));
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: right 0.5s ease;
+            overflow-y: auto;
+        }
+        .google-form-container:hover .form-sidebar {
+            right: 20px;
+        }
+        .form-sidebar h4 {
+            color: #333;
+            margin-bottom: 1rem;
             text-align: center;
-            animation: successPop 0.6s ease-out;
         }
-        @keyframes successPop {
-            0% { transform: scale(0.8); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
+        .form-sidebar ul {
+            list-style: none;
+            text-align: center;
         }
-        .error-message {
-            display: none;
-            background: #ff6b6b;
-            color: white;
-            padding: 1rem;
+        .form-sidebar li {
+            margin: 1rem 0;
+            color: #666;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .form-sidebar li:hover {
+            color: #667eea;
+        }
+        .form-sidebar li i {
+            color: #ffd700;
+            margin-right: 0.5rem;
+            transition: transform 0.3s;
+        }
+        .form-sidebar li:hover i {
+            transform: rotate(360deg);
+        }
+        .testimonial-slider {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            background: rgba(255,255,255,0.9);
             border-radius: 10px;
-            margin-top: 1rem;
+            padding: 1rem;
             text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            animation: slideIn 1s ease-out;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+            to { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+        }
+        .testimonial-author {
+            font-weight: bold;
+            color: #667eea;
+            margin-top: 0.5rem;
         }
 
         /* Footer */
@@ -679,11 +770,29 @@
                 left: -48px;
                 right: auto;
             }
-            .register-form {
-                padding: 2rem;
-            }
-            .checkbox-group {
+            .registration-stats {
                 flex-direction: column;
+                gap: 1rem;
+            }
+            .google-form-header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            .form-sidebar {
+                position: static;
+                width: 100%;
+                height: auto;
+                margin-top: 2rem;
+            }
+            .google-form-container:hover .form-sidebar {
+                right: auto;
+            }
+            .google-form-iframe {
+                height: 1000px;
+            }
+            .testimonial-slider {
+                width: 95%;
             }
         }
     </style>
@@ -720,7 +829,7 @@
         <div class="floating-icons" id="floatingIcons"></div>
         <div class="hero-content container">
             <h1 id="heroTitle">Ignite Your Future</h1>
-            <p class="subtitle">Day 1: Live Innovation & Excitement | Join the Fest Revolution</p>
+            <p class="subtitle">Day 2: Live Innovation & Excitement | Join the Fest Revolution</p>
             <div class="countdown" id="countdown">
                 <div class="countdown-item">
                     <span class="countdown-number" id="hours">00</span>
@@ -838,14 +947,14 @@
         <div class="container">
             <h2 class="section-title"><i class="fas fa-clock"></i> Event Schedule</h2>
             <div class="schedule-grid">
-                <div class="day-card live">
-                    <div class="live-badge">LIVE NOW</div>
+                <div class="day-card">
                     <h3><i class="fas fa-sun"></i> Day 1: Nov 13</h3>
                     <div class="event-time">9:00 AM - CSE Hackathon</div>
                     <div class="event-time">2:00 PM - ECE Robotics Expo</div>
                     <div class="event-time">7:00 PM - Opening Ceremony</div>
                 </div>
-                <div class="day-card">
+                <div class="day-card live">
+                    <div class="live-badge">LIVE NOW</div>
                     <h3><i class="fas fa-moon"></i> Day 2: Nov 14</h3>
                     <div class="event-time">10:00 AM - MECH Drag Racing</div>
                     <div class="event-time">3:00 PM - CIVIL Model Making</div>
@@ -861,83 +970,46 @@
         </div>
     </section>
 
-    <section id="register1">
-        <h2>Register Now</h2>
-      
-        <div class="form-container">
-          <iframe 
-            src="https://docs.google.com/forms/d/e/1FAIpQLSe-example/viewform?embedded=true"
-            width="100%"
-            height="1200"
-            frameborder="0"
-            style="border:0; border-radius:15px;">
-          </iframe>
-        </div>
-      </section>
-
     <section id="register" class="register">
+        <div class="register-particles" id="registerParticles"></div>
         <div class="register-content">
             <h2 class="section-title"><i class="fas fa-user-plus"></i> Register for the Fest</h2>
-            <form class="register-form" id="registerForm">
-                <div class="form-group">
-                    <label for="fullName">Full Name</label>
-                    <input type="text" id="fullName" name="fullName" required>
+            <div class="registration-stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="registeredCount">567</span>
+                    <span class="stat-label">Registered</span>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
+                <div class="stat-item">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Days</span>
                 </div>
-                <div class="form-group">
-                    <label for="department">Department</label>
-                    <select id="department" name="department" required>
-                        <option value="">Select Department</option>
-                        <option value="CSE">Computer Science (CSE)</option>
-                        <option value="ECE">Electronics (ECE)</option>
-                        <option value="MECH">Mechanical (MECH)</option>
-                        <option value="CIVIL">Civil (CIVIL)</option>
-                        <option value="Other">Other</option>
-                    </select>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Events</span>
                 </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="google-form-container">
+                <div class="google-form-header">
+                    <h3><i class="fas fa-edit"></i> Quick Registration</h3>
+                    <i class="fas fa-graduation-cap" style="font-size: 2rem; animation: spin 4s linear infinite;"></i>
                 </div>
-                <div class="form-group">
-                    <label>Events Interested In (Select Multiple)</label>
-                    <div class="checkbox-group">
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="hackathon" name="events" value="Hackathon Challenge">
-                            <label for="hackathon">Hackathon Challenge (CSE)</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="robotics" name="events" value="Robotics Expo (ECE)">
-                            <label for="robotics">Robotics Expo (ECE)</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="dragRacing" name="events" value="Drag Racing (MECH)">
-                            <label for="dragRacing">Drag Racing (MECH)</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="modelMaking" name="events" value="Model Making (CIVIL)">
-                            <label for="modelMaking">Model Making (CIVIL)</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="opening" name="events" value="Opening Ceremony">
-                            <label for="opening">Opening Ceremony</label>
-                        </div>
-                    </div>
+                <div class="form-embed-wrapper">
+                    <iframe class="google-form-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfsooTkv9E7fPOR9SmBVdfvN4sfX_pejuIz8QnpX_3L0ZCLCw/viewform?embedded=true" title="College Fest 2025 Registration"></iframe>
                 </div>
-                <div class="form-group">
-                    <label for="message">Any Message?</label>
-                    <textarea id="message" name="message" rows="3" placeholder="Optional: Share your excitement!"></textarea>
+                <div class="form-sidebar">
+                    <h4><i class="fas fa-info-circle"></i> Quick Tips</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Fill all required fields</li>
+                        <li><i class="fas fa-star"></i> Select your favorite events</li>
+                        <li><i class="fas fa-envelope"></i> Confirmation email sent</li>
+                        <li><i class="fas fa-rocket"></i> See you at the fest!</li>
+                    </ul>
                 </div>
-                <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Register Now</button>
-                <div class="error-message" id="errorMessage">Please fill in all required fields correctly.</div>
-                <div class="success-message" id="successMessage">
-                    <h3><i class="fas fa-check-circle"></i> Registration Successful!</h3>
-                    <p>Thank you for joining College Fest 2025. Check your email for confirmation. Get ready to ignite your future! 🚀</p>
+                <div class="testimonial-slider">
+                    <p class="testimonial-text">"This fest ignited my passion for tech—can't wait for more!"</p>
+                    <div class="testimonial-author">- Alex, CSE Student</div>
                 </div>
-            </form>
+            </div>
         </div>
     </section>
 
@@ -1004,14 +1076,34 @@
             });
         });
 
-        // Registration Form Animation
-        gsap.from(".register-form", {
+        // Registration Enhancements
+        gsap.from(".registration-stats .stat-item", {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power3.out",
+            scrollTrigger: { trigger: ".register", start: "top 80%" }
+        });
+        gsap.from(".google-form-container", {
             y: 100,
             opacity: 0,
             duration: 1.2,
             ease: "power3.out",
             scrollTrigger: { trigger: ".register", start: "top 80%" }
         });
+
+        // Animated Registration Counter
+        let count = 0;
+        const registeredCount = document.getElementById('registeredCount');
+        function animateCounter() {
+            if (count < 567) {
+                count += Math.floor(Math.random() * 5) + 1;
+                registeredCount.textContent = count;
+                setTimeout(animateCounter, 50);
+            }
+        }
+        setTimeout(animateCounter, 2000);
 
         // Section Titles
         gsap.utils.toArray(".section-title").forEach(title => {
@@ -1046,13 +1138,13 @@
         }
         setTimeout(typeWriter, 500);
 
-        // Countdown Timer to Opening Ceremony (7 PM Nov 13, 2025)
-        const openingTime = new Date('2025-11-13T19:00:00').getTime();
+        // Countdown Timer to Cultural Night (8 PM Nov 14, 2025)
+        const culturalTime = new Date('2025-11-14T20:00:00').getTime();
         const countdownEl = document.getElementById('countdown');
         const liveIndicator = document.getElementById('liveIndicator');
         function updateCountdown() {
             const now = new Date().getTime();
-            const distance = openingTime - now;
+            const distance = culturalTime - now;
             if (distance > 0) {
                 const hours = Math.floor(distance / (1000 * 60 * 60));
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -1101,12 +1193,27 @@
         }
         createParticles();
 
-        // Live Badge for Day 1 (Always on Nov 13, 2025)
+        // Register Section Particles
+        function createRegisterParticles() {
+            const container = document.getElementById('registerParticles');
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('register-particle');
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                particle.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                container.appendChild(particle);
+            }
+        }
+        createRegisterParticles();
+
+        // Live Badge for Day 2 (Nov 14, 2025)
         const today = new Date();
-        if (today.getFullYear() === 2025 && today.getMonth() === 10 && today.getDate() === 13) {
-            const day1 = document.querySelector('.schedule-grid .day-card:nth-child(1)');
-            day1.classList.add('live');
-            day1.insertAdjacentHTML('afterbegin', '<div class="live-badge">LIVE NOW</div>');
+        if (today.getFullYear() === 2025 && today.getMonth() === 10 && today.getDate() === 14) {
+            const day2 = document.querySelector('.schedule-grid .day-card:nth-child(2)');
+            day2.classList.add('live');
+            day2.insertAdjacentHTML('afterbegin', '<div class="live-badge">LIVE NOW</div>');
         }
 
         // Header Scroll Effect
@@ -1130,44 +1237,18 @@
             });
         });
 
-        // Registration Form Handling
-        const form = document.getElementById('registerForm');
-        const successMsg = document.getElementById('successMessage');
-        const errorMsg = document.getElementById('errorMessage');
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(form);
-            const fullName = formData.get('fullName');
-            const email = formData.get('email');
-            const department = formData.get('department');
-            const phone = formData.get('phone');
-            const events = Array.from(formData.getAll('events')).join(', ');
-
-            // Simple validation
-            if (!fullName || !email || !department || !phone || email.indexOf('@') === -1) {
-                errorMsg.style.display = 'block';
-                gsap.fromTo(errorMsg, { y: -20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 });
-                setTimeout(() => {
-                    gsap.to(errorMsg, { y: -20, opacity: 0, duration: 0.5 });
-                    setTimeout(() => errorMsg.style.display = 'none', 500);
-                }, 3000);
-                return;
+        // Confetti on Register Section Scroll
+        ScrollTrigger.create({
+            trigger: ".register",
+            start: "top 80%",
+            onEnter: () => {
+                confetti({
+                    particleCount: 100,
+                    spread: 60,
+                    origin: { y: 0.8 },
+                    colors: ['#667eea', '#764ba2', '#ffd700']
+                });
             }
-
-            // Simulate submission
-            console.log('Registration Data:', { fullName, email, department, phone, events, message: formData.get('message') });
-
-            // Show success
-            form.style.display = 'none';
-            successMsg.style.display = 'block';
-            confetti({
-                particleCount: 200,
-                spread: 70,
-                origin: { y: 0.6 },
-                colors: ['#667eea', '#764ba2', '#ffd700', '#4facfe', '#00f2fe']
-            });
-            gsap.fromTo(successMsg, { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8, ease: "elastic.out(1, 0.3)" });
         });
 
         // Preloader
