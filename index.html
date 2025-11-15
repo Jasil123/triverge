@@ -33,7 +33,7 @@
     .event-section {
         text-align: center;
         color: white;
-        padding: 40px 20px;
+        padding: 40px 0;
         animation: fadeIn 1.2s ease;
     }
 
@@ -82,6 +82,40 @@
         transform: translateY(-3px);
     }
 
+    /* Events List Base Styles */
+    .events-title {
+        margin-bottom: 15px;
+        font-size: 28px;
+        font-weight: 600;
+        color: white;
+        text-align: center;
+    }
+
+    .events-list {
+        text-align: left;
+        margin: auto;
+        max-width: 700px;
+        line-height: 1.7;
+    }
+
+    .event-item {
+        background: rgba(255,255,255,0.2);
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .event-item h3 {
+        color: white;
+        margin-bottom: 5px;
+    }
+
+    .event-item p {
+        color: #eee;
+        margin: 5px 0;
+    }
+
     /* SECTION 2 – FORM */
     .form-section {
         margin-top: 60px;
@@ -104,6 +138,118 @@
         font-size: 32px;
     }
 
+    /* Mobile Responsiveness */
+    @media screen and (max-width: 768px) {
+        .container {
+            padding: 40px 0;
+            max-width: 100%;
+        }
+
+        .event-section {
+            padding: 40px 0;
+        }
+
+        .event-box {
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .event-title {
+            font-size: 28px;
+        }
+
+        .event-info {
+            font-size: 16px;
+        }
+
+        .register-btn {
+            padding: 12px 24px;
+            font-size: 16px;
+        }
+
+        h2 {
+            font-size: 24px;
+        }
+
+        .events-title {
+            font-size: 24px;
+        }
+
+        .events-list {
+            max-width: 100%;
+            padding: 0 10px;
+        }
+
+        .event-item {
+            padding: 15px;
+        }
+
+        .event-item h3 {
+            font-size: 18px;
+        }
+
+        .event-item p {
+            font-size: 14px;
+        }
+
+        .form-section {
+            margin-top: 40px;
+            padding: 20px 0;
+        }
+
+        .form-box {
+            padding: 20px;
+            border-radius: 15px;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        .container {
+            padding: 30px 0;
+        }
+
+        .event-section {
+            padding: 30px 0;
+        }
+
+        .event-box {
+            padding: 15px;
+        }
+
+        .event-title {
+            font-size: 24px;
+        }
+
+        .register-btn {
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .events-title {
+            font-size: 20px;
+        }
+
+        .form-box {
+            padding: 15px;
+        }
+
+        .event-item {
+            padding: 12px;
+        }
+
+        .event-item h3 {
+            font-size: 16px;
+        }
+
+        .event-item p {
+            font-size: 13px;
+        }
+    }
 </style>
 </head>
 
@@ -112,7 +258,6 @@
 <div class="container">
 
     <!-- 🔵 SECTION 1: EVENT INFO -->
-<!-- 🔵 SECTION 1: EVENT INFO -->
 <div class="event-section">
     <div class="event-box">
 
@@ -122,51 +267,52 @@
             Welcome to the Science Department chapter of TRIVERGE 2025.  
             Our events focus on innovation, creativity, and practical application.  
             Participate, compete, and showcase your talent while experiencing an unforgettable college event.
-            <a href="#register" class="register-btn">Register Now</a>
+            
         </p>
+        <a href="#register" class="register-btn">Register Now</a>
         
 
         <br>
         
         <!-- EVENTS LIST -->
-        <h2 style="margin-bottom:15px; font-size:28px; font-weight:600;">Events & Details</h2>
+        <h2 class="events-title">Events & Details</h2>
 
-        <div style="text-align:left; margin:auto; max-width:700px; line-height:1.7;">
+        <div class="events-list">
 
             <!-- EVENT 1 -->
-            <div style="background:rgba(255,255,255,0.2); padding:15px 20px; margin-bottom:15px; border-radius:12px; border:1px solid rgba(255,255,255,0.3);">
-                <h3 style="color:white; margin-bottom:5px;">🔬 Science Quiz Challenge</h3>
-                <p style="color:#eee;">A thrilling quiz covering physics, chemistry, biology & general science.</p>
-                <p style="color:#eee;"><b>Time:</b> 10:00 AM – 11:00 AM</p>
-                <p style="color:#eee;"><b>Fee:</b> <span style="color:#ffdf70; font-weight:700;">₹50</span></p>
-                <p style="color:#eee;"><b>Prize:</b> <span style="color:#5aff96; font-weight:700;">₹1000</span></p>
+            <div class="event-item">
+                <h3>🔬 Science Quiz Challenge</h3>
+                <p>A thrilling quiz covering physics, chemistry, biology & general science.</p>
+                <p><b>Time:</b> 10:00 AM – 11:00 AM</p>
+                <p><b>Fee:</b> <span style="color:#ffdf70; font-weight:700;">₹50</span></p>
+                <p><b>Prize:</b> <span style="color:#5aff96; font-weight:700;">₹1000</span></p>
             </div>
 
             <!-- EVENT 2 -->
-            <div style="background:rgba(255,255,255,0.2); padding:15px 20px; margin-bottom:15px; border-radius:12px; border:1px solid rgba(255,255,255,0.3);">
-                <h3 style="color:white; margin-bottom:5px;">🧪 Chemistry Model Presentation</h3>
-                <p style="color:#eee;">Present innovative chemical models or experiments with explanation.</p>
-                <p style="color:#eee;"><b>Time:</b> 11:30 AM – 1:00 PM</p>
-                <p style="color:#eee;"><b>Fee:</b> <span style="color:#ffdf70; font-weight:700;">₹70</span></p>
-                <p style="color:#eee;"><b>Prize:</b> <span style="color:#5aff96; font-weight:700;">₹1500</span></p>
+            <div class="event-item">
+                <h3>🧪 Chemistry Model Presentation</h3>
+                <p>Present innovative chemical models or experiments with explanation.</p>
+                <p><b>Time:</b> 11:30 AM – 1:00 PM</p>
+                <p><b>Fee:</b> <span style="color:#ffdf70; font-weight:700;">₹70</span></p>
+                <p><b>Prize:</b> <span style="color:#5aff96; font-weight:700;">₹1500</span></p>
             </div>
 
             <!-- EVENT 3 -->
-            <div style="background:rgba(255,255,255,0.2); padding:15px 20px; margin-bottom:15px; border-radius:12px; border:1px solid rgba(255,255,255,0.3);">
-                <h3 style="color:white; margin-bottom:5px;">🧬 Bio Expo</h3>
-                <p style="color:#eee;">Display biological models, charts, specimens, and innovations.</p>
-                <p style="color:#eee;"><b>Time:</b> 2:00 PM – 3:30 PM</p>
-                <p style="color:#eee;"><b>Fee:</b> <span style="color:#ffdf70; font-weight:700;">₹40</span></p>
-                <p style="color:#eee;"><b>Prize:</b> <span style="color:#5aff96; font-weight:700;">₹1200</span></p>
+            <div class="event-item">
+                <h3>🧬 Bio Expo</h3>
+                <p>Display biological models, charts, specimens, and innovations.</p>
+                <p><b>Time:</b> 2:00 PM – 3:30 PM</p>
+                <p><b>Fee:</b> <span style="color:#ffdf70; font-weight:700;">₹40</span></p>
+                <p><b>Prize:</b> <span style="color:#5aff96; font-weight:700;">₹1200</span></p>
             </div>
 
             <!-- EVENT 4 -->
-            <div style="background:rgba(255,255,255,0.2); padding:15px 20px; margin-bottom:15px; border-radius:12px; border:1px solid rgba(255,255,255,0.3);">
-                <h3 style="color:white; margin-bottom:5px;">💡 Science Innovation Pitch</h3>
-                <p style="color:#eee;">Pitch a new invention or scientific solution to real-world problems.</p>
-                <p style="color:#eee;"><b>Time:</b> 3:45 PM – 4:30 PM</p>
-                <p style="color:#eee;"><b>Fee:</b> <span style="color:#ffdf70; font-weight:700;">₹100</span></p>
-                <p style="color:#eee;"><b>Prize:</b> <span style="color:#5aff96; font-weight:700;">₹2000</span></p>
+            <div class="event-item">
+                <h3>💡 Science Innovation Pitch</h3>
+                <p>Pitch a new invention or scientific solution to real-world problems.</p>
+                <p><b>Time:</b> 3:45 PM – 4:30 PM</p>
+                <p><b>Fee:</b> <span style="color:#ffdf70; font-weight:700;">₹100</span></p>
+                <p><b>Prize:</b> <span style="color:#5aff96; font-weight:700;">₹2000</span></p>
             </div>
 
         </div>
@@ -181,8 +327,6 @@
 
 
     <!-- 🔴 SECTION 2: TALLY FORM -->
-<!-- 🔴 SECTION 2: TALLY FORM -->
-<!-- 🔴 SECTION 2: TALLY FORM -->
 <div id="register" class="form-section">
     <h2>Registration Form</h2>
 
@@ -193,7 +337,7 @@
             <iframe 
                 data-tally-src="https://tally.so/embed/ODD46Y?hideTitle=1&dynamicHeight=1&transparentBackground=1"
                 width="100%"
-                style="max-width:700px; min-height:600px; border:0;"
+                style="max-width:100%; min-height:600px; border:0;"
                 frameborder="0">
             </iframe>
         </div>
