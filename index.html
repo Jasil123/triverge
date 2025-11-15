@@ -138,6 +138,19 @@
         font-size: 32px;
     }
 
+    .form-iframe-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .form-iframe {
+        width: 100%;
+        max-width: 700px;
+        min-height: 600px;
+        border: 0;
+    }
+
     /* Mobile Responsiveness */
     @media screen and (max-width: 768px) {
         .container {
@@ -200,6 +213,10 @@
         .form-box {
             padding: 20px;
             border-radius: 15px;
+        }
+
+        .form-iframe {
+            max-width: 100%;
         }
     }
 
@@ -266,10 +283,9 @@
         <p class="event-info">
             Welcome to the Science Department chapter of TRIVERGE 2025.  
             Our events focus on innovation, creativity, and practical application.  
-            Participate, compete, and showcase your talent while experiencing an unforgettable college event.
-            
+            Participate, compete, and showcase your talent while experiencing an unforgettable college event.<br>
+            <a href="#register" class="register-btn">Register Now</a>
         </p>
-        <a href="#register" class="register-btn">Register Now</a>
         
 
         <br>
@@ -333,11 +349,10 @@
     <div class="form-box" style="overflow:visible;">
 
         <!-- Wrapper to center the form -->
-        <div style="display:flex; justify-content:center; width:100%;">
+        <div class="form-iframe-container">
             <iframe 
                 data-tally-src="https://tally.so/embed/ODD46Y?hideTitle=1&dynamicHeight=1&transparentBackground=1"
-                width="100%"
-                style="max-width:100%; min-height:600px; border:0;"
+                class="form-iframe"
                 frameborder="0">
             </iframe>
         </div>
