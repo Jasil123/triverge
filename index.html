@@ -1,369 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>College Event Registration</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-<style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-
-    body {
-        background: linear-gradient(135deg, #1b1b2f, #162447, #1f4068, #e43f5a);
-        background-size: 400% 400%;
-        animation: gradientMove 12s ease infinite;
-        scroll-behavior: smooth;
-    }
-
-    @keyframes gradientMove {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
-
-    .container {
-        max-width: 900px;
-        margin: auto;
-        padding: 40px 20px;
-    }
-
-    /* SECTION 1 – EVENT DETAILS */
-    .event-section {
-        text-align: center;
-        color: white;
-        padding: 40px 0;
-        animation: fadeIn 1.2s ease;
-    }
-
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    .event-box {
-        background: rgba(255,255,255,0.15);
-        backdrop-filter: blur(10px);
-        border-radius: 20px;
-        padding: 30px;
-        border: 1px solid rgba(255,255,255,0.2);
-        box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-    }
-
-    .event-title {
-        font-size: 40px;
-        font-weight: 600;
-        margin-bottom: 10px;
-    }
-
-    .event-info {
-        font-size: 18px;
-        margin: 10px 0;
-        opacity: 0.9;
-    }
-
-    .register-btn {
-        margin-top: 25px;
-        display: inline-block;
-        padding: 14px 28px;
-        font-size: 18px;
-        background: #e43f5a;
-        color: white;
-        border-radius: 50px;
-        cursor: pointer;
-        text-decoration: none;
-        transition: 0.3s;
-        font-weight: 600;
-    }
-
-    .register-btn:hover {
-        background: #ff516b;
-        transform: translateY(-3px);
-    }
-
-    /* Events List Base Styles */
-    .events-title {
-        margin-bottom: 15px;
-        font-size: 28px;
-        font-weight: 600;
-        color: white;
-        text-align: center;
-    }
-
-    .events-list {
-        text-align: left;
-        margin: auto;
-        max-width: 700px;
-        line-height: 1.7;
-    }
-
-    .event-item {
-        background: rgba(255,255,255,0.2);
-        padding: 15px 20px;
-        margin-bottom: 15px;
-        border-radius: 12px;
-        border: 1px solid rgba(255,255,255,0.3);
-    }
-
-    .event-item h3 {
-        color: white;
-        margin-bottom: 5px;
-    }
-
-    .event-item p {
-        color: #eee;
-        margin: 5px 0;
-    }
-
-    /* SECTION 2 – FORM */
-    .form-section {
-        margin-top: 60px;
-        padding: 20px 0;
-    }
-
-    .form-box {
-        background: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(10px);
-        padding: 25px;
-        border-radius: 20px;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    h2 {
-        text-align: center;
-        color: white;
-        margin-bottom: 20px;
-        font-size: 32px;
-    }
-
-    .form-iframe-container {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-    }
-
-    .form-iframe {
-        width: 100%;
-        max-width: 700px;
-        min-height: 600px;
-        border: 0;
-    }
-
-    /* Mobile Responsiveness */
-    @media screen and (max-width: 768px) {
-        .container {
-            padding: 40px 0;
-            max-width: 100%;
-        }
-
-        .event-section {
-            padding: 40px 0;
-        }
-
-        .event-box {
-            padding: 20px;
-            border-radius: 15px;
-        }
-
-        .event-title {
-            font-size: 28px;
-        }
-
-        .event-info {
-            font-size: 16px;
-        }
-
-        .register-btn {
-            padding: 12px 24px;
-            font-size: 16px;
-        }
-
-        h2 {
-            font-size: 24px;
-        }
-
-        .events-title {
-            font-size: 24px;
-        }
-
-        .events-list {
-            max-width: 100%;
-            padding: 0 10px;
-        }
-
-        .event-item {
-            padding: 15px;
-        }
-
-        .event-item h3 {
-            font-size: 18px;
-        }
-
-        .event-item p {
-            font-size: 14px;
-        }
-
-        .form-section {
-            margin-top: 40px;
-            padding: 20px 0;
-        }
-
-        .form-box {
-            padding: 20px;
-            border-radius: 15px;
-        }
-
-        .form-iframe {
-            max-width: 100%;
-        }
-    }
-
-    @media screen and (max-width: 480px) {
-        .container {
-            padding: 30px 0;
-        }
-
-        .event-section {
-            padding: 30px 0;
-        }
-
-        .event-box {
-            padding: 15px;
-        }
-
-        .event-title {
-            font-size: 24px;
-        }
-
-        .register-btn {
-            padding: 10px 20px;
-            font-size: 14px;
-        }
-
-        h2 {
-            font-size: 20px;
-            margin-bottom: 15px;
-        }
-
-        .events-title {
-            font-size: 20px;
-        }
-
-        .form-box {
-            padding: 15px;
-        }
-
-        .event-item {
-            padding: 12px;
-        }
-
-        .event-item h3 {
-            font-size: 16px;
-        }
-
-        .event-item p {
-            font-size: 13px;
-        }
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triverge 2025 - Artistic, Scientific, Strategic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<div class="container">
-
-    <!-- 🔵 SECTION 1: EVENT INFO -->
-<div class="event-section">
-    <div class="event-box">
-
-        <h1 class="event-title">Science Department Events</h1>
-
-        <p class="event-info">
-            Welcome to the Science Department chapter of TRIVERGE 2025.  
-            Our events focus on innovation, creativity, and practical application.  
-            Participate, compete, and showcase your talent while experiencing an unforgettable college event.<br>
-            <a href="#register" class="register-btn">Register Now</a>
-        </p>
-        
-
-        <br>
-        
-        <!-- EVENTS LIST -->
-        <h2 class="events-title">Events & Details</h2>
-
-        <div class="events-list">
-
-            <!-- EVENT 1 -->
-            <div class="event-item">
-                <h3>🔬 Science Quiz Challenge</h3>
-                <p>A thrilling quiz covering physics, chemistry, biology & general science.</p>
-                <p><b>Time:</b> 10:00 AM – 11:00 AM</p>
-                <p><b>Fee:</b> <span style="color:#ffdf70; font-weight:700;">₹50</span></p>
-                <p><b>Prize:</b> <span style="color:#5aff96; font-weight:700;">₹1000</span></p>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="logo.png" alt="Triverge Logo" class="logo-img">
             </div>
-
-            <!-- EVENT 2 -->
-            <div class="event-item">
-                <h3>🧪 Chemistry Model Presentation</h3>
-                <p>Present innovative chemical models or experiments with explanation.</p>
-                <p><b>Time:</b> 11:30 AM – 1:00 PM</p>
-                <p><b>Fee:</b> <span style="color:#ffdf70; font-weight:700;">₹70</span></p>
-                <p><b>Prize:</b> <span style="color:#5aff96; font-weight:700;">₹1500</span></p>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#themes" class="nav-link">Themes</a></li>
+                <li><a href="#departments" class="nav-link">Departments</a></li>
+                <li><a href="#schedule" class="nav-link">Schedule</a></li>
+                <li><a href="okeda.html" class="nav-link">Register</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-
-            <!-- EVENT 3 -->
-            <div class="event-item">
-                <h3>🧬 Bio Expo</h3>
-                <p>Display biological models, charts, specimens, and innovations.</p>
-                <p><b>Time:</b> 2:00 PM – 3:30 PM</p>
-                <p><b>Fee:</b> <span style="color:#ffdf70; font-weight:700;">₹40</span></p>
-                <p><b>Prize:</b> <span style="color:#5aff96; font-weight:700;">₹1200</span></p>
-            </div>
-
-            <!-- EVENT 4 -->
-            <div class="event-item">
-                <h3>💡 Science Innovation Pitch</h3>
-                <p>Pitch a new invention or scientific solution to real-world problems.</p>
-                <p><b>Time:</b> 3:45 PM – 4:30 PM</p>
-                <p><b>Fee:</b> <span style="color:#ffdf70; font-weight:700;">₹100</span></p>
-                <p><b>Prize:</b> <span style="color:#5aff96; font-weight:700;">₹2000</span></p>
-            </div>
-
         </div>
+    </nav>
 
-        <br><br>
-
-        <!-- REGISTER BUTTON -->
-        
-    </div>
-</div>
-
-
-
-    <!-- 🔴 SECTION 2: TALLY FORM -->
-<div id="register" class="form-section">
-    <h2>Registration Form</h2>
-
-    <div class="form-box" style="overflow:visible;">
-
-        <!-- Wrapper to center the form -->
-        <div class="form-iframe-container">
-            <iframe 
-                data-tally-src="https://tally.so/embed/ODD46Y?hideTitle=1&dynamicHeight=1&transparentBackground=1"
-                class="form-iframe"
-                frameborder="0">
-            </iframe>
+    <!-- Hero Section -->
+    <section id="hero" class="section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="animate-fade-in">Triverge 2025</h1>
+            <p class="animate-fade-in subheadline" style="animation-delay: 0.3s;">Artistic | Scientific | Strategic</p>
+            <div class="hero-features animate-fade-in" style="animation-delay: 0.6s;">
+                <div class="feature-item">
+                    <i class="fas fa-trophy"></i>
+                    <span>Win Prizes Worth ₹50,000+</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-users"></i>
+                    <span>Join 5000+ Students</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>March 15-17, 2025</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-star"></i>
+                    <span>Live Performances & Workshops</span>
+                </div>
+            </div>
+            <div class="hero-cta animate-fade-in" style="animation-delay: 0.9s;">
+                <a href="okeda.html" class="cta-btn primary">Join the Fest</a>
+                <a href="#about" class="cta-btn secondary">Learn More</a>
+            </div>
+            <div class="hero-scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+            </div>
         </div>
+        <div class="hero-bg-elements">
+            <div class="floating-neon"></div>
+            <div class="floating-neon delay-1"></div>
+            <div class="floating-neon delay-2"></div>
+            <div class="floating-neon delay-3"></div>
+            <div class="particle-field"></div>
+        </div>
+    </section>
 
-    </div>
-</div>
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text animate-slide-left">
+                    <h2 class="neon-gradient">Ignite Your Potential</h2>
+                    <p>Triverge is the ultimate intercollegiate fest where creativity meets innovation. Dive into a world of artistic expression, scientific breakthroughs, and strategic mastery. Join thousands of students as we converge to celebrate the future.</p>
+                    <p>Dates: March 15-17, 2025 | Venue: Campus Arena</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3>100+</h3>
+                            <p>Events</p>
+                        </div>
+                        <div class="stat">
+                            <h3>50+</h3>
+                            <p>Workshops</p>
+                        </div>
+                        <div class="stat">
+                            <h3>10+</h3>
+                            <p>Stages</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image animate-slide-left" style="animation-delay: 0.3s;">
+                    <img src="about-bg.png" alt="About Triverge" class="about-img">
+                </div>
+            </div>
+        </div>
+    </section>
 
-<script async src="https://tally.so/widgets/embed.js"></script>
+    <!-- Themes Section -->
+    <section id="themes" class="section">
+        <div class="container">
+            <h2 class="neon-gradient text-center mb-4" style="font-size: 2.5rem;">Core Themes</h2>
+            <div class="themes-grid">
+                <div class="theme-card animate-fade-in">
+                    <i class="fas fa-palette"></i>
+                    <h3>Artistic</h3>
+                    <p>Unleash your creativity through dance, music, and visual arts competitions.</p>
+                </div>
+                <div class="theme-card animate-fade-in" style="animation-delay: 0.2s;">
+                    <i class="fas fa-flask"></i>
+                    <h3>Scientific</h3>
+                    <p>Explore cutting-edge projects, hackathons, and tech workshops.</p>
+                </div>
+                <div class="theme-card animate-fade-in" style="animation-delay: 0.4s;">
+                    <i class="fas fa-chess"></i>
+                    <h3>Strategic</h3>
+                    <p>Test your wits in debates, quizzes, and business simulations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Departments Section -->
+    <section id="departments" class="section">
+        <div class="container">
+            <h2 class="neon-gradient text-center mb-4" style="font-size: 2.5rem;">Departments & Events</h2>
+            <div class="departments-tabs">
+                <button class="tab-btn active" data-tab="artistic">Artistic</button>
+                <button class="tab-btn" data-tab="scientific">Scientific</button>
+                <button class="tab-btn" data-tab="strategic">Strategic</button>
+            </div>
+            <div id="artistic" class="dept-content active">
+                <div class="dept-grid">
+                    <div class="dept-card animate-fade-in">
+                        <h4>Fine Arts Department</h4>
+                        <ul>
+                            <li>Poster Making Competition</li>
+                            <li>Sketching Challenge</li>
+                            <li>Digital Art Workshop</li>
+                        </ul>
+                        <a href="okeda.html" class="register-btn">For More Details & Registration</a>
+                    </div>
+                    <div class="dept-card animate-fade-in" style="animation-delay: 0.2s;">
+                        <h4>Performing Arts Department</h4>
+                        <ul>
+                            <li>Dance Battle</li>
+                            <li>Drama Skit</li>
+                            <li>Music Band Performance</li>
+                        </ul>
+                        <a href="okeda.html" class="register-btn">For More Details & Registration</a>
+                    </div>
+                </div>
+            </div>
+            <div id="scientific" class="dept-content">
+                <div class="dept-grid">
+                    <div class="dept-card animate-fade-in">
+                        <h4>Physics Department</h4>
+                        <ul>
+                            <li>Science Quiz</li>
+                            <li>Experiment Demo</li>
+                            <li>Innovation Showcase</li>
+                        </ul>
+                        <a href="okeda.html" class="register-btn">For More Details & Registration</a>
+                    </div>
+                    <div class="dept-card animate-fade-in" style="animation-delay: 0.2s;">
+                        <h4>Computer Application Department</h4>
+                        <ul>
+                            <li>Hackathon</li>
+                            <li>Coding Challenge</li>
+                            <li>AI Workshop</li>
+                        </ul>
+                        <a href="bca.html" class="register-btn">For More Details & Registration</a>
+                    </div>
+                </div>
+            </div>
+            <div id="strategic" class="dept-content">
+                <div class="dept-grid">
+                    <div class="dept-card animate-fade-in">
+                        <h4>Management Department</h4>
+                        <ul>
+                            <li>Business Plan Pitch</li>
+                            <li>Case Study Competition</li>
+                            <li>Marketing Strategy Game</li>
+                        </ul>
+                        <a href="okeda.html" class="register-btn">For More Details & Registration</a>
+                    </div>
+                    <div class="dept-card animate-fade-in" style="animation-delay: 0.2s;">
+                        <h4>Economics Department</h4>
+                        <ul>
+                            <li>Debate Tournament</li>
+                            <li>Policy Simulation</li>
+                            <li>Investment Challenge</li>
+                        </ul>
+                        <a href="okeda.html" class="register-btn">For More Details & Registration</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Schedule Section -->
+    <section id="schedule" class="section">
+        <div class="container">
+            <h2 class="neon-gradient text-center mb-4" style="font-size: 2.5rem;">Event Schedule</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Day 1: March 15</h3>
+                        <p>Opening Ceremony & Artistic Workshops</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Day 2: March 16</h3>
+                        <p>Scientific Hackathon & Strategic Debates</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Day 3: March 17</h3>
+                        <p>Finals & Grand Finale</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Registration Section -->
+    <section id="register" class="section">
+        <div class="container">
+            <h2 class="neon-gradient text-center mb-4" style="font-size: 2.5rem;">Ready to Register?</h2>
+            <p class="text-center" style="font-size: 1.2rem; opacity: 0.8; margin-bottom: 2rem;">Click below to proceed to the registration portal.</p>
+            <a href="okeda.html" class="cta-btn">Register Now</a>
+        </div>
+    </section>
 
+    <!-- Sponsors Section -->
+    <section id="sponsors" class="section">
+        <div class="container">
+            <h2 class="neon-gradient text-center mb-4" style="font-size: 2.5rem;">Sponsors</h2>
+            <div class="sponsors-grid">
+                <div class="sponsor-logo">Sponsor 1</div>
+                <div class="sponsor-logo">Sponsor 2</div>
+                <div class="sponsor-logo">Sponsor 3</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="neon-gradient text-center mb-4" style="font-size: 2.5rem;">Get in Touch</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>info@triverge.com</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p>+91 12345 67890</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Campus Arena, India</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Triverge. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
