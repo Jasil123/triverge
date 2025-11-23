@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Event Registration</title>
+
+<style>
+    /* MAIN */
+    body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: #0d0d16;
+        color: #f0f0f5;
+        scroll-behavior: smooth;
+    }
+
+    /* GLOW SHADOW */
+    .glow {
+        box-shadow: 0 0 25px rgba(120, 82, 255, 0.45);
+    }
+
+    /* SECTION 1 */
+    .section1 {
+        padding: 40px 20px;
+        max-width: 900px;
+        margin: auto;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 18px;
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(120, 82, 255, 0.2);
+    }
+
+    .title {
+        text-align: center;
+        font-size: 32px;
+        font-weight: 800;
+        margin-bottom: 10px;
+        color: #a28cff;
+        text-shadow: 0 0 10px rgba(120, 82, 255, 0.8);
+    }
+
+    .subtitle {
+        text-align: center;
+        font-size: 16px;
+        color: #b5b5c9;
+        margin-bottom: 25px;
+    }
+
+    .event-box {
+        background: rgba(255,255,255,0.05);
+        border-radius: 16px;
+        padding: 20px;
+        margin-bottom: 20px;
+        border: 1px solid rgba(120,82,255,0.3);
+        transition: 0.3s;
+    }
+
+    .event-box:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 15px rgba(120,82,255,0.4);
+    }
+
+    .event-title {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: #d8cdff;
+    }
+
+    .event-detail {
+        color: #c9c9dd;
+        margin-bottom: 6px;
+        line-height: 1.4;
+    }
+
+    .highlight {
+        color: #ff6961;
+        font-weight: bold;
+        font-size: 18px;
+        text-shadow: 0 0 10px #ff69615a;
+    }
+
+    .register-btn {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        background: linear-gradient(90deg, #6a4bff, #8b68ff);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 20px;
+        font-weight: 700;
+        margin-top: 10px;
+        cursor: pointer;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .register-btn:hover {
+        opacity: 0.85;
+        transform: scale(1.02);
+        box-shadow: 0 0 20px rgba(122, 92, 255, 0.7);
+    }
+
+    /* SECTION 2 */
+    .section2 {
+        padding: 40px 20px;
+        max-width: 900px;
+        margin: 40px auto;
+    }
+
+    .form-container {
+        background: rgba(255, 255, 255, 0.03);
+        padding: 0;
+        border-radius: 18px;
+        border: 1px solid rgba(120,82,255,0.25);
+        backdrop-filter: blur(12px);
+        overflow: hidden;
+    }
+
+    iframe {
+        width: 100%;
+        border: none;
+        min-height: 900px;
+    }
+
+    /* MOBILE */
+    @media(max-width: 600px){
+        .title { font-size: 26px; }
+        .event-title { font-size: 18px; }
+        iframe { min-height: 1100px; }
+    }
+</style>
+</head>
+
+<body>
+
+<!-- SECTION 1 -->
+<div class="section1 glow">
+    <div class="title">Department of Computer Science</div>
+    <div class="subtitle">Intercollegiate Tech Fest • 2025</div>
+
+    <!-- Event 1 -->
+    <div class="event-box">
+        <div class="event-title">Debugging Challenge</div>
+        <div class="event-detail">🕒 Time: 10:00 AM – 11:30 AM</div>
+        <div class="event-detail">📌 Venue: Lab 1</div>
+        <div class="event-detail">💰 Fee: <span class="highlight">₹100</span></div>
+    </div>
+
+    <!-- Event 2 -->
+    <div class="event-box">
+        <div class="event-title">Web Design Sprint</div>
+        <div class="event-detail">🕒 Time: 12:00 PM – 1:30 PM</div>
+        <div class="event-detail">📌 Venue: Lab 2</div>
+        <div class="event-detail">💰 Fee: <span class="highlight">₹150</span></div>
+    </div>
+
+    <!-- Event 3 -->
+    <div class="event-box">
+        <div class="event-title">Code War (Team Event)</div>
+        <div class="event-detail">🕒 Time: 2:30 PM – 4:30 PM</div>
+        <div class="event-detail">📌 Venue: Seminar Hall</div>
+        <div class="event-detail">💰 Fee: <span class="highlight">₹200</span></div>
+    </div>
+
+    <!-- Register Button -->
+    <button class="register-btn" onclick="document.getElementById('reg').scrollIntoView({behavior:'smooth'})">
+        Register Now
+    </button>
+</div>
+
+<!-- SECTION 2 - Tally Form -->
+<div id="reg" class="section2">
+    <div class="title">Registration Form</div>
+
+    <div class="form-container glow">
+        <!-- Replace YOUR_CODE with your Tally form embed -->
+        <iframe src="https://tally.so/embed/ODD46Y?alignLeft=1&transparentBackground=1&hideTitle=1" loading="lazy"></iframe>
+    </div>
+</div>
+
+</body>
+</html>

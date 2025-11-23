@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triverge 2025 - Coming Soon</title>
+    <!-- Custom Favicon from TRIVERGE Logo (32x32 PNG base64) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADUklEQVRYhe2Uf0zUZRzHX9+74+S8u+4UvAQ9ioBG3M0ETzqs2FHplA3tXJKFbia1woXS5mqrufGHrtVWm7QhcxK0qZtwes1+YKuMmHXmrlGINUdY3pYwDgI57gt3cPf0T7Y51t11zD9a9/r387zfz/vzeX5AihQp/qvYXugQAI6GNmNJ7bH8ZH0U/1aQX3P8LoBA3jSb3Z8KnX1qXF/WP7C7a78A2FTftOiOBCjYekIAaE0K84ajF4Vea8QflPl4e7201px3X05Apwfoem9v6I4EKFxuACDn3sL+yckAuXkmPDuekgAGI9PXRrS+AEDzjwdE26W9AuDJV9qr4/lKiQbYvf9b0Rscw1SchdGs5NSmYqnmi+NFsnqmLzztH7Aobxzwh0c7tZEJKrOLQDFEZfFJyfbSkTe8LXWHFhTA6XSFIjlL1UOKECuty3DX2m7TbT//riianRSjMz4pfXYUq+ZBDBlXMSy+H8eqgzH3iBtg6/pDLWZL+Yv9I1HyHzUxRhBXne0fdR98/nqvkkihiq50gyqCSZvJmtKvE570PN5suCQ2VrWJXS/3iGT0vsvVSen+5pny1gUZeD6yXI1Vj/sKHrZmAVBR6RalVZ+I0rpzAsDe9qUA2OJ6R9R/uEsAdH5WLgBGWp1CbrIJ/5Gnxd29xoJY/qpYxcZtHWqXRaMH0KkHPAadLn1mVucDuPjc49Lz7e2XwxPD769U5a5qPrVzClk+A2Cqdf915t54/cXH0XFFd1uoxsa4U/N+v6fvp7MNAwA3O8sWdgcAHF3XkzYZenV1TG3MI7jFTc91dp74VYwPD7N8fPjksYPOmkQDROW0mPWE3mfNmd/EFbcXzewc2RlZLFXPsSQS5e2m9fP05+xlYpkyjTXf9Eijh2vPZu5r3RzLO6EJ6P1q1q4rZO5GgEFvHyGNgeBUcN467xPbDHNTPowlEj9rSkTmvta4DSb8Q1Xv6RYrstWss+jwdvd999bhHfZbta/sTrEo/Q+ksJJsa5h7jl5I2DehCQB0NDskgN+rXWJJKPQQwGl7lYiq1S0VPaelbtsWkfvANNFr8uAPjz0ytvr8hYxEfJP6o18zPyvSpBkMkoxJyFhXSChkFROLIwUVnu5fkvFMkeL/y5/nyC8Lz5tXQgAAAABJRU5ErkJggg==">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;900&display=swap');
+
+        :root {
+            --bg-black: #000000;
+            --bg-dark: #111111;
+            --text-white: #ffffff;
+            --text-gray: #b0b0b0;
+            --accent-gold: #ffd700;
+            --accent-purple: #8a2be2;
+            --shadow: rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            height: 100vh;
+            background: var(--bg-black);
+            color: var(--text-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animated Background Grid */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255,215,0,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,215,0,0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 30s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 2rem;
+            z-index: 10;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 6rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--accent-gold), var(--accent-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { filter: brightness(1); }
+            50% { filter: brightness(1.5); }
+            100% { filter: brightness(1); }
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+            text-shadow: 0 0 20px rgba(255,215,0,0.3);
+        }
+
+        p {
+            font-size: 1.3rem;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        /* Elegant Button */
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: transparent;
+            color: var(--accent-gold);
+            border: 2px solid var(--accent-gold);
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-btn:hover::before {
+            left: 100%;
+        }
+
+        .cta-btn:hover {
+            background: var(--accent-gold);
+            color: #000;
+            box-shadow: 0 0 30px rgba(255,215,0,0.5);
+            transform: translateY(-3px);
+        }
+
+        footer {
+            position: absolute;
+            bottom: 2rem;
+            width: 100%;
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Floating Elements */
+        .float {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .float1 {
+            top: 20%;
+            left: 10%;
+            font-size: 3rem;
+            animation-delay: 0s;
+        }
+
+        .float2 {
+            bottom: 20%;
+            right: 10%;
+            font-size: 2rem;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @media (max-width: 768px) {
+            .logo { font-size: 4rem; }
+            h1 { font-size: 2.5rem; }
+            p { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="float float1">✨</div>
+    <div class="float float2">🌟</div>
+
+    <div class="container">
+        <div class="logo">TRIVERGE 2025</div>
+        <h1>Coming Soon</h1>
+     </div>
+
+    <footer>&copy; 2025 Triverge. All rights reserved.</footer>
+
+    <script>
+        document.querySelector('.cta-btn').addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('🔥 Notified! You\'ll be the first to know.');
+        });
+    </script>
+</body>
+</html>
