@@ -52,7 +52,7 @@
       border-bottom: 1px solid rgba(100, 120, 255, 0.2);
     }
 
-    .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+    .container { max-width: 1400px; margin: 0 auto; padding: 0 1.5rem; } /* Reduced padding for mobile */
     .header-content {
       display: flex;
       justify-content: space-between;
@@ -66,13 +66,13 @@
       -webkit-text-fill-color: transparent;
     }
 
-    main { padding-top: 140px; padding-bottom: 6rem; }
+    main { padding-top: 120px; padding-bottom: 4rem; } /* Reduced top padding */
 
     .hero-title {
       text-align: center;
       font-size: 4.2rem;
       font-weight: 800;
-      margin-bottom: 4rem;
+      margin-bottom: 3rem; /* Slightly reduced margin */
       background: linear-gradient(90deg, #a78bfa, #f0abfc, #ec42a9);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -82,13 +82,13 @@
 
     .departments-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-      gap: 2.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Reduced min-width to prevent horizontal scroll */
+      gap: 2rem;
     }
 
     .department-card {
       background: var(--card);
-      border-radius: 24px;
+      border-radius: 20px; /* Slightly smaller radius for compactness */
       overflow: hidden;
       backdrop-filter: blur(12px);
       border: 1px solid var(--card-border);
@@ -103,13 +103,13 @@
     }
 
     .department-card:hover {
-      transform: translateY(-20px);
-      box-shadow: 0 30px 60px rgba(129, 140, 248, 0.25);
+      transform: translateY(-12px); /* Reduced lift on hover for mobile */
+      box-shadow: 0 20px 40px rgba(129, 140, 248, 0.25); /* Softer shadow */
       border-color: rgba(129, 140, 248, 0.4);
     }
 
     .dept-header {
-      padding: 2rem;
+      padding: 1.5rem; /* Reduced padding */
       color: white;
       position: relative;
       overflow: hidden;
@@ -128,7 +128,7 @@
     }
 
     .dept-header h3 {
-      font-size: 1.9rem;
+      font-size: 1.7rem; /* Slightly smaller base size */
       font-weight: 700;
       position: relative;
       z-index: 2;
@@ -137,7 +137,7 @@
     .toggle-icon {
       position: relative;
       z-index: 2;
-      font-size: 1.5rem;
+      font-size: 1.2rem; /* Smaller icon */
       transition: transform 0.4s ease;
     }
 
@@ -147,15 +147,15 @@
 
     .icon-big {
       position: absolute;
-      right: -10px;
-      bottom: -20px;
-      font-size: 9rem;
-      opacity: 0.15;
+      right: -5px; /* Adjusted position */
+      bottom: -15px;
+      font-size: 7rem; /* Reduced size */
+      opacity: 0.12; /* Slightly more subtle */
       z-index: 1;
     }
 
     .dept-body {
-      padding: 2rem;
+      padding: 1.5rem; /* Reduced padding */
       background: rgba(20, 25, 45, 0.8);
       border-top: 1px solid rgba(100, 120, 255, 0.2);
       transition: all 0.6s ease;
@@ -177,44 +177,44 @@
 
     .events-list {
       list-style: none;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem; /* Reduced margin */
     }
 
     .event-item {
       background: rgba(100, 120, 255, 0.12);
-      padding: 1.2rem 1.5rem;
-      margin-bottom: 1rem;
-      border-radius: 16px;
-      border-left: 5px solid var(--accent1);
+      padding: 1rem 1.2rem; /* Reduced padding */
+      margin-bottom: 0.8rem; /* Reduced margin */
+      border-radius: 12px; /* Smaller radius */
+      border-left: 4px solid var(--accent1); /* Thinner border */
       transition: all 0.4s;
       backdrop-filter: blur(4px);
     }
 
     .event-item:hover {
       background: rgba(129, 140, 248, 0.22);
-      transform: translateX(12px);
+      transform: translateX(8px); /* Reduced translate for mobile */
     }
 
     .event-date {
-      font-size: 0.9rem;
+      font-size: 0.85rem; /* Slightly smaller */
       color: #a78bfa;
       font-weight: 600;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
 
     .register-btn {
       display: block;
       width: 100%;
-      padding: 1.3rem;
+      padding: 1rem; /* Reduced padding */
       background: linear-gradient(90deg, var(--accent1), var(--accent2));
       color: white;
       text-align: center;
       font-weight: 600;
-      font-size: 1.1rem;
-      border-radius: 16px;
+      font-size: 1rem; /* Smaller font */
+      border-radius: 12px;
       text-decoration: none;
       transition: all 0.4s;
       position: relative;
@@ -224,20 +224,20 @@
     .register-btn::after {
       content: '→';
       position: absolute;
-      right: 1.5rem;
+      right: 1.2rem;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       transition: all 0.3s;
     }
 
     .register-btn:hover::after {
-      right: 1.2rem;
+      right: 1rem;
     }
 
     .register-btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 15px 30px rgba(129, 140, 248, 0.4);
+      transform: translateY(-2px); /* Reduced lift */
+      box-shadow: 0 10px 20px rgba(129, 140, 248, 0.4);
     }
 
     @keyframes fadeInDown {
@@ -245,10 +245,81 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Enhanced mobile responsiveness */
     @media (max-width: 768px) {
-      .hero-title { font-size: 3rem; }
-      .departments-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .dept-header h3 { font-size: 1.7rem; }
+      .container { padding: 0 1rem; } /* Further reduced padding */
+      header { padding: 1rem 0; }
+      .logo { font-size: 1.6rem; } /* Smaller logo */
+      main { padding-top: 140px; padding-bottom: 3rem; } /* Increased top padding to fully clear header */
+      .hero-title { 
+        font-size: 2.8rem; 
+        margin-bottom: 2rem;
+        line-height: 1.1;
+      }
+      .departments-grid { 
+        grid-template-columns: 1fr; 
+        gap: 1.5rem;
+        padding: 0 0.5rem; /* Add slight side padding */
+      }
+      .dept-header { padding: 1.2rem; }
+      .dept-header h3 { font-size: 1.5rem; }
+      .dept-body { padding: 1.2rem; }
+      .icon-big { 
+        font-size: 5rem; 
+        right: 0; 
+        bottom: -10px;
+        opacity: 0.1;
+      }
+      .toggle-icon { font-size: 1rem; }
+      /* Disable toggle on mobile for always-visible experience */
+      .dept-header { cursor: default; }
+      .dept-header.collapsed .toggle-icon { transform: none; }
+      /* Ensure no collapse on mobile */
+      .dept-body.collapsed {
+        max-height: 1000px;
+        padding-top: 1.2rem;
+        padding-bottom: 1.2rem;
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title { font-size: 2.2rem; margin-bottom: 1.5rem; }
+      .dept-header { padding: 1rem; }
+      .dept-header h3 { font-size: 1.3rem; }
+      .dept-body { padding: 1rem; }
+      .event-item { padding: 0.8rem 1rem; margin-bottom: 0.6rem; }
+      .register-btn { padding: 0.9rem; font-size: 0.95rem; }
+      .icon-big { font-size: 4rem; bottom: -5px; }
+      main { padding-top: 130px; } /* Slightly less for very small screens */
+    }
+
+    /* Smooth scrolling behavior */
+    html { scroll-behavior: smooth; }
+
+    /* Optional: Add a subtle scroll indicator for mobile */
+    @media (max-width: 768px) {
+      body::after {
+        content: '↓ Scroll for more events';
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(10, 14, 26, 0.9);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        color: var(--text-light);
+        backdrop-filter: blur(10px);
+        animation: bounce 2s infinite;
+        z-index: 999;
+        white-space: nowrap;
+      }
+      @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+        40% { transform: translateX(-50%) translateY(-5px); }
+        60% { transform: translateX(-50%) translateY(-2px); }
+      }
     }
   </style>
 </head>
@@ -256,7 +327,7 @@
 
   <header>
     <div class="container header-content">
-      <div class="logo"><i class="fas fa-graduation-cap"></i> PPTM ARTS AND SCIENCE COLLEGE | TRIVEGE 2025</div>
+      <div class="logo"><i class="fas fa-graduation-cap"></i>TRIVERGE 2025</div>
       <nav>
         <a href="../index.html" style="color:#818cf8; text-decoration:none; font-weight:600;">← Back to Home</a>
       </nav>
@@ -271,9 +342,9 @@
 
   <script>
     const departments = [
+      { name: "Commerce And Managment Studies", icon: "fa-briefcase", link: "COMMERCE/index.html", grad1: "#10b981", grad2: "#34d399", events: ["BEST MANAGER – Dec 18", "TREASURE HUNT – Feb 5-7", "BUSINESS QUIZ","CORPORATE WALK","MARKETING GAMES"] },
       { name: "Computer Science", icon: "fa-laptop-code", link: "cse.html", grad1: "#6366f1", grad2: "#8b5cf6", events: ["AI Revolution Summit – Dec 5", "Global Hackathon 2026 – Jan 15-17", "Metaverse & Web3 Conference – Feb 10"] },
       { name: "Electrical Engineering", icon: "fa-bolt-lightning", link: "ee.html", grad1: "#f59e0b", grad2: "#ef4444", events: ["National Robotics Championship – Dec 12", "Smart Grid & Renewables Expo – Jan 20"] },
-      { name: "Business Administration", icon: "fa-briefcase", link: "commerce.html", grad1: "#10b981", grad2: "#34d399", events: ["Startup India Summit – Dec 18", "Global Leadership Conclave – Feb 5-7"] },
       { name: "Biotechnology", icon: "fa-dna", link: "biotech.html", grad1: "#ec42a9", grad2: "#f43f5e", events: ["Gene Editing Future – Jan 8", "Bioinformatics Global Meet – Feb 20"] },
       { name: "Design & Architecture", icon: "fa-drafting-compass", link: "design.html", grad1: "#8b5cf6", grad2: "#c084fc", events: ["Sustainable Cities Expo – Dec 10", "Future of UX Design – Jan 25"] },
       { name: "Mechanical Engineering", icon: "fa-gears", link: "mech.html", grad1: "#3b82f6", grad2: "#06b6d4", events: ["Industry 4.0 Revolution – Dec 20", "Electric Vehicles Summit – Feb 15"] }
@@ -298,8 +369,8 @@
             ${dept.events.map(ev => {
               const [title, date] = ev.split(' – ');
               return `<li class="event-item">
-                <div class="event-date"><i class="fas fa-calendar-star"></i> ${date}</div>
-                <div><strong>${title}</strong></div>
+                <div class="event-date"><i class="fas fa-calendar-star"></i> ${date || ev}</div>
+                <div><strong>${title || ev}</strong></div>
               </li>`;
             }).join('')}
           </ul>
@@ -309,12 +380,14 @@
         </div>
       `;
 
-      // Toggle collapse (optional)
+      // Toggle collapse (disabled on mobile via CSS)
       const header = card.querySelector('.dept-header');
       const body = card.querySelector('.dept-body');
       header.addEventListener('click', () => {
-        header.classList.toggle('collapsed');
-        body.classList.toggle('collapsed');
+        if (window.innerWidth > 768) { // Only toggle on desktop
+          header.classList.toggle('collapsed');
+          body.classList.toggle('collapsed');
+        }
       });
 
       grid.appendChild(card);
