@@ -1,116 +1,108 @@
-// Mobile Menu Toggle
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
-const navLinks = document.querySelectorAll('.nav-link');
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- Mobile Menu Toggle ---
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
 
-hamburger.addEventListener('click', () => {
-    const isActive = navMenu.classList.contains('active');
-    navMenu.classList.toggle('active');
-    hamburger.classList.toggle('active');
-    if (!isActive) {
-        document.body.style.overflow = 'hidden'; // Prevent scrolling on mobile
-    } else {
-        document.body.style.overflow = 'auto';
+    function toggleMenu() {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
     }
-});
 
-// Close mobile menu on link click
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        hamburger.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    });
-});
-
-// Navbar Scroll Effect
-window.addEventListener('scroll', () => {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
-
-// Active Nav Link on Scroll
-window.addEventListener('scroll', () => {
-    let current = '';
-    const sections = document.querySelectorAll('section[id]');
-    const scrollPos = window.scrollY + 200;
-
-    sections.forEach(section => {
-        if (scrollPos >= section.offsetTop) {
-            current = section.getAttribute('id');
-        }
-    });
+    hamburger.addEventListener('click', toggleMenu);
 
     navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}` || (current === 'hero' && link.getAttribute('href') === '#hero')) {
-            link.classList.add('active');
+        link.addEventListener('click', () => {
+            if (navMenu.classList.contains('active')) toggleMenu();
+        });
+    });
+
+    // --- Sticky Navbar with Blur Effect ---
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
         }
     });
-});
 
-// Smooth Scrolling for Internal Nav Links
-navLinks.forEach(anchor => {
-    if (anchor.getAttribute('href').startsWith('#')) {
+    // --- Tab Switching Logic ---
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all
+            tabBtns.forEach(b => b.classList.remove('active'));
+            tabContents.forEach(c => c.classList.remove('active'));
+
+            // Add active class to clicked
+            btn.classList.add('active');
+            const tabId = btn.getAttribute('data-tab');
+            document.getElementById(tabId).classList.add('active');
+        });
+    });
+
+    // --- Smooth Scroll for Anchor Links ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
+                target.scrollIntoView({ behavior: 'smooth' });
             }
         });
-    }
-});
-
-// Departments Tabs
-const tabBtns = document.querySelectorAll('.tab-btn');
-const deptContents = document.querySelectorAll('.dept-content');
-tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        const tab = btn.dataset.tab;
-        tabBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        deptContents.forEach(content => content.classList.remove('active'));
-        document.getElementById(tab).classList.add('active');
     });
-});
 
-// Timeline Animation on Scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate');
-        }
+    // --- Active Link on Scroll ---
+    const sections = document.querySelectorAll('section');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(current)) {
+                link.classList.add('active');
+            }
+        });
     });
-}, observerOptions);
 
-document.querySelectorAll('.timeline-item').forEach(item => {
-    observer.observe(item);
-});
+    // --- Simple Scroll Animation Trigger ---
+    const observerOptions = {
+        threshold: 0.1
+    };
 
-// Fade-in Animations
-const fadeObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-up');
+                entry.target.style.opacity = "1";
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Select elements to animate
+    const animateElements = document.querySelectorAll('.glass-panel, .timeline-entry, .section-header');
+    animateElements.forEach(el => {
+        el.style.opacity = "0"; // Initially hide
+        el.classList.add('fade-up'); // Re-use the keyframe logic
+        el.style.animationPlayState = "paused"; // Pause until observed
+        observer.observe(el);
     });
-}, { threshold: 0.5 });
-
-document.querySelectorAll('.animate-fade-in').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(50px)';
-    el.style.transition = 'opacity 1s ease, transform 1s ease';
-    fadeObserver.observe(el);
+    
+    // Fix for animation trigger logic to play nice with CSS
+    document.querySelectorAll('.fade-up').forEach(el => {
+        el.style.animationPlayState = "running";
+    });
 });
