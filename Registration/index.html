@@ -312,6 +312,45 @@
       border-color: rgba(255,255,255,0.3);
     }
 
+    /* --- SCROLL INDICATOR --- */
+    .scroll-indicator {
+      position: fixed;
+      bottom: 30px;
+      right: 20px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0.7;
+      animation: bounce 2s infinite;
+      pointer-events: none;
+    }
+
+    .scroll-arrow {
+      width: 20px;
+      height: 20px;
+      border-right: 2px solid var(--secondary);
+      border-bottom: 2px solid var(--secondary);
+      transform: rotate(45deg);
+    }
+
+    .scroll-text {
+      font-size: 0.7rem;
+      color: var(--secondary);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      font-weight: 600;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+      40% {transform: translateY(-10px);}
+      60% {transform: translateY(-5px);}
+    }
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(40px); }
       to { opacity: 1; transform: translateY(0); }
@@ -365,6 +404,12 @@
 
   <main class="container">
     <h1 class="hero-title">Event Zones</h1>
+    
+    <div class="scroll-indicator">
+      <div class="scroll-text">More</div>
+      <div class="scroll-arrow"></div>
+    </div>
+
     <div class="departments-grid" id="departmentsGrid"></div>
   </main>
 
@@ -423,6 +468,12 @@
         icon: "fa-chart-line", 
         link: "ECONO/", 
         events: ["spot speech competition - EconoSpeak-26"] 
+      },
+      { 
+        name: "Physical Education", 
+        icon: "fa-running", 
+        link: "PHYSICAL/", 
+        events: ["Adventure Game"] 
       },
       { 
         name: "General", 
