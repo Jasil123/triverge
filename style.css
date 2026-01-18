@@ -317,6 +317,43 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 .timeline-entry.right .entry-content { text-align: left; }
 .entry-content h3 { color: var(--primary); margin-bottom: 0.5rem; }
 
+/* Timeline List Styles */
+.timeline-events {
+  list-style: none;
+  margin-bottom: 1rem;
+}
+.timeline-events li {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  padding: 0.2rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+.timeline-events li:last-child {
+  border-bottom: none;
+}
+
+/* Small Register Button */
+.btn-small-register {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--secondary);
+  border: 1px solid var(--border-light);
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.btn-small-register:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  transform: translateX(5px);
+}
+
 /* --- Contact & Footer --- */
 .contact-box { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding: 0; overflow: hidden; }
 .contact-text { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
