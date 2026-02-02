@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>General Events | Triverge 2026</title>
+  <title>General Program | Triverge 2026</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -180,6 +180,26 @@
       line-height: 1.6;
     }
     
+    .hero-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 2.5rem;
+        padding: 1rem 2.5rem;
+        background: linear-gradient(45deg, var(--primary), #5b21b6);
+        color: white;
+        border-radius: 50px;
+        font-weight: 600;
+        box-shadow: 0 10px 20px rgba(112, 0, 255, 0.3);
+        transition: 0.4s;
+        text-decoration: none;
+    }
+    .hero-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(112, 0, 255, 0.5);
+        color: white;
+    }
+
     /* --- EVENTS LIST --- */
     .section-label {
       font-family: var(--font-head);
@@ -403,11 +423,12 @@
     
     <!-- Hero Section -->
     <div class="dept-hero">
-      <div class="dept-badge">Open for All</div>
-      <h1 class="dept-title">General Events</h1>
+      <div class="dept-badge">General Event</div>
+      <h1 class="dept-title">Triverge 2026</h1>
       <p class="dept-desc">
-        Exciting competitions open to all participants. Showcase your general knowledge and win big!
+        General Quiz Competition.
       </p>
+      <a href="#register" class="hero-btn">Register Now <i class="fas fa-chevron-right"></i></a>
     </div>
 
     <div class="section-label">Featured Events</div>
@@ -421,30 +442,36 @@
     <div class="events-wrapper">
       
       <div class="event-card">
-        <div class="event-icon"><i class="fas fa-trophy"></i></div>
+        <div class="event-icon"><i class="fas fa-music"></i></div>
         <h3>General Quiz</h3>
         <div class="event-details">
-          <div class="detail-item"><span class="detail-label">Team</span> <span>2 Members</span></div>
-          <div class="detail-item"><span class="detail-label">Entry</span> <span>Up to 2 teams per college</span></div>
-          <div class="detail-item"><span class="detail-label">Reg Fee</span> <span class="price-tag">₹100</span></div>
-          <div class="detail-item"><span class="detail-label">Prize Pool</span> <span class="price-tag">₹5,005</span></div>
+          <div class="detail-item"><span class="detail-label">Team</span> Consist of 2 members<span></span></div>
+          <div class="detail-item"><span class="detail-label">Reg Fee</span> <span class="price-tag">₹150 per team</span></div>
+          <div class="detail-item"><span class="detail-label">1st Prize</span> <span class="price-tag">₹7777</span></div>
         </div>
       </div>
 
     </div>
 
+    <!-- Contact Info -->
+    <div class="contact-info-box" style="margin-bottom: 3rem; text-align: center;">
+        <h3 style="font-family: var(--font-head); color: var(--secondary); margin-bottom: 1.5rem;">For Queries </h3>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem; color: var(--text-muted);">
+            <div class="contact-group">
+                <h4 style="color: white; margin-bottom: 0.8rem; font-size: 1.2rem;">Teacher Coordinators</h4>
+                <p><i class="fas fa-phone-alt" style="color: var(--primary); margin-right: 8px;"></i> +91 9539 769 196</p>
+            </div>
+            <div class="contact-group">
+                <h4 style="color: white; margin-bottom: 0.8rem; font-size: 1.2rem;">Student Coordinators</h4>
+                <p><i class="fas fa-phone-alt" style="color: var(--secondary); margin-right: 8px;"></i> +91 7736 768 170</p>
+            </div>
+        </div>
+    </div>
+
     <!-- Registration Form -->
-    <div id="register" class="form-container" style="text-align: center;">
-      <h2 class="form-title">Spot Registration</h2>
-      <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2.5rem; line-height: 1.6;">
-        Registration for the General Quiz is handled on-site at the venue registration desk.
-      </p>
-      <div style="padding: 3.5rem 2rem; border: 2px dashed rgba(255,255,255,0.1); border-radius: 24px; background: rgba(255,255,255,0.01);">
-        <i class="fas fa-map-marker-alt" style="font-size: 3rem; color: var(--secondary); margin-bottom: 1.5rem; display: block;"></i>
-        <h3 style="color: white; margin-bottom: 1rem; font-family: var(--font-head);">Report to Venue Desk</h3>
-        <p style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px;">See you at Triverge '26
-!</p>
-      </div>
+    <div id="register" class="form-container">
+      <h2 class="form-title">Registration</h2>
+      <iframe data-tally-src="https://tally.so/embed/NpoJ2B?hideTitle=1&dynamicHeight=1&transparentBackground=1" title="Registration Form"></iframe>
     </div>
 
   </main>

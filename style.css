@@ -502,3 +502,69 @@ footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border-l
   .identity-theme { font-size: 1rem; letter-spacing: 2px; }
   .identity-logo { width: 120px; }
 }
+
+/* --- Brochure / Downloads Section --- */
+.brochure-wrapper {
+  text-align: center;
+  overflow: hidden;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-container {
+  width: 100%;
+  max-width: 800px; /* Constraint width */
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+  position: relative;
+  /* fade edges for smooth look */
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  /* We will duplicate images to make it seamless. 
+     If we have 2 images repeated twice (4 total), 
+     scrolling -50% (width of 2 images + gaps) resets it. 
+  */
+  animation: scrollMarquee 15s linear infinite;
+}
+
+.carousel-container:hover .carousel-track {
+    animation-play-state: paused;
+}
+
+.carousel-img {
+  height: 450px; 
+  width: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.carousel-img:hover {
+    transform: scale(1.02);
+}
+
+.brochure-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 10px)); } /* Adjust for gap */
+}
+
+@media (max-width: 768px) {
+    .carousel-img { height: 300px; }
+    .brochure-wrapper { padding: 2rem 1rem; }
+}
