@@ -11,6 +11,7 @@
   --font-head: 'Space Grotesk', sans-serif;
   --font-body: 'Outfit', sans-serif;
   --glass: blur(12px);
+  --banner-height: 44px;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
@@ -31,6 +32,62 @@ body {
   overflow-y: hidden;
   position: relative;
   min-height: 100%;
+}
+
+/* --- Offer Banner --- */
+.offer-banner {
+    background: rgba(3, 0, 20, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(112, 0, 255, 0.3);
+    color: var(--text-main);
+    text-align: center;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2000;
+    font-family: var(--font-head);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    min-height: var(--banner-height);
+}
+
+.offer-badge {
+    background: linear-gradient(45deg, var(--accent), var(--primary));
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 0, 122, 0.4); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 0, 122, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 0, 122, 0); }
+}
+
+.offer-banner p {
+    margin: 0;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+.banner-dot {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background: var(--secondary);
+    border-radius: 50%;
+    margin: 0 8px;
+    vertical-align: middle;
 }
 
 /* --- BACKGROUND SYSTEM (The "Desktop Look" for Mobile) --- */
@@ -99,7 +156,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 /* --- Navbar --- */
 .navbar {
   position: fixed;
-  top: 0;
+  top: var(--banner-height);
   left: 0;
   right: 0;
   padding: 1.2rem 0;
@@ -173,7 +230,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 100px 20px 20px 20px;
+  padding: 140px 20px 20px 20px;
   position: relative;
 }
 .badge-pill {
@@ -382,6 +439,13 @@ footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border-l
 
 /* --- Mobile Responsiveness --- */
 @media (max-width: 768px) {
+  :root {
+    --banner-height: 54px;
+  }
+  .offer-banner {
+    font-size: 0.75rem;
+    padding: 8px 15px;
+  }
   /* MOBILE BACKGROUND FIX: */
   /* We resize the lights but keep the animation full and lush - adjusted positions to avoid negative offsets causing viewport expansion */
   .light-1 { width: 300px; height: 300px; left: 0; top: 0; }
