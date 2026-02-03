@@ -31,7 +31,7 @@
     /* --- MOBILE & SCROLL FIXES --- */
     html {
       width: 100%;
-      height: 100%;
+      min-height: 100%; /* Changed from height: 100% for iOS support */
       overflow-x: hidden;
       background-color: var(--bg-dark);
       scroll-behavior: smooth;
@@ -592,7 +592,7 @@
         }, 2500);
 
         // Stop on interaction - Use standard events
-        const events = ['mousedown', 'wheel', 'keydown', 'touchstart', 'pointerdown'];
+        const events = ['mousedown', 'wheel', 'keydown', 'touchstart', 'touchmove', 'pointerdown'];
         
         events.forEach(evt => {
             window.addEventListener(evt, () => {
