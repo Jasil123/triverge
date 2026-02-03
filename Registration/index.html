@@ -549,42 +549,57 @@
 
     // --- Auto Scroll Logic ---
     document.addEventListener('DOMContentLoaded', () => {
-        let scrollSpeed = 1; // Pixels per tick
-        let scrollDelay = 20; // Milliseconds
-        let scrollInterval;
+        let scrollSpeed = 0.3; // Target pixels per frame
+        let scrollAccumulator = 0; // To handle sub-pixel scrolling
         let userInteracted = false;
+        let animationFrameId;
 
         function autoScroll() {
             if (userInteracted) return;
-            
+
             // Check if we've reached the bottom
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                stopAutoScroll();
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+                userInteracted = true;
                 return;
             }
 
-            window.scrollBy(0, scrollSpeed);
+            // Accumulate fractional pixels
+            scrollAccumulator += scrollSpeed;
+            
+            // If we have at least 1 whole pixel, scroll
+            if (scrollAccumulator >= 1) {
+                const pixelsToScroll = Math.floor(scrollAccumulator);
+                window.scrollBy(0, pixelsToScroll);
+                scrollAccumulator -= pixelsToScroll; // Keep the remainder
+            }
+
+            animationFrameId = requestAnimationFrame(autoScroll);
         }
 
         function stopAutoScroll() {
             userInteracted = true;
-            clearInterval(scrollInterval);
-            // Optional: Hide scroll indicator if it exists
+            if (animationFrameId) cancelAnimationFrame(animationFrameId);
+            
             const indicator = document.querySelector('.scroll-indicator');
-            if (indicator) indicator.style.display = 'none';
+            if (indicator) indicator.style.opacity = '0';
         }
 
-        // Start scrolling after a short delay to let animations finish
+        // Start scrolling after a delay
         setTimeout(() => {
-            if (!userInteracted) {
-                scrollInterval = setInterval(autoScroll, scrollDelay);
+            if (!userInteracted && window.scrollY < 50) { // Only start if still at top
+                autoScroll();
             }
-        }, 2000);
+        }, 2500);
 
-        // Stop on interaction
-        ['mousedown', 'wheel', 'touchstart', 'keydown'].forEach(evt => 
-            window.addEventListener(evt, stopAutoScroll, { once: true, passive: true })
-        );
+        // Stop on interaction - Use standard events
+        const events = ['mousedown', 'wheel', 'keydown', 'touchstart', 'pointerdown'];
+        
+        events.forEach(evt => {
+            window.addEventListener(evt, () => {
+                // For touch, we want to stop immediately on contact
+                stopAutoScroll();
+            }, { once: true, passive: true });
+        });
     });
   </script>
 </body>
