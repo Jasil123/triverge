@@ -158,15 +158,15 @@
     /* --- DEPARTMENTS GRID --- */
     .departments-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 2.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Reduced min width */
+      gap: 1.5rem; /* Reduced gap */
     }
 
     /* --- GLASS CARD STYLING --- */
     .department-card {
       background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
       border: 1px solid var(--border-light);
-      border-radius: 24px;
+      border-radius: 16px; /* Reduced radius */
       overflow: hidden;
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
@@ -184,15 +184,15 @@
     }
 
     .department-card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-5px); /* Reduced hover lift */
       border-color: rgba(0, 210, 255, 0.5);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
       background: rgba(255, 255, 255, 0.08);
     }
 
     /* Card Header */
     .dept-header {
-      padding: 2rem;
+      padding: 1.2rem; /* Reduced padding */
       position: relative;
       background: linear-gradient(90deg, rgba(255,255,255,0.03), transparent);
       border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -204,19 +204,19 @@
 
     .dept-header h3 {
       font-family: var(--font-head);
-      font-size: 1.4rem;
+      font-size: 1.1rem; /* Reduced font size */
       color: white;
       z-index: 2;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
-    .dept-header h3 i { color: var(--secondary); font-size: 1.2rem; }
+    .dept-header h3 i { color: var(--secondary); font-size: 1rem; }
 
     .icon-bg {
       position: absolute;
       right: -10px; bottom: -20px;
-      font-size: 6rem;
+      font-size: 4rem; /* Reduced icon size */
       opacity: 0.03;
       color: white;
       transform: rotate(-15deg);
@@ -231,13 +231,13 @@
     .toggle-icon {
       color: var(--text-muted);
       transition: transform 0.3s;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
     .collapsed .toggle-icon { transform: rotate(-90deg); }
 
     /* Card Body */
     .dept-body {
-      padding: 2rem;
+      padding: 1.2rem; /* Reduced padding */
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       max-height: 1000px;
       opacity: 1;
@@ -255,24 +255,24 @@
     }
 
     /* Event Items */
-    .events-list { list-style: none; margin-bottom: 2rem; flex-grow: 1; }
+    .events-list { list-style: none; margin-bottom: 1.5rem; flex-grow: 1; }
     
     .event-item {
       background: rgba(255, 255, 255, 0.02);
-      padding: 0.8rem 1.2rem;
-      margin-bottom: 0.6rem;
-      border-radius: 12px;
+      padding: 0.6rem 0.8rem; /* Reduced padding */
+      margin-bottom: 0.5rem;
+      border-radius: 8px;
       border: 1px solid rgba(255,255,255,0.05);
       transition: 0.3s;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
     
     .event-item::before {
         content: '';
-        width: 6px;
-        height: 6px;
+        width: 4px;
+        height: 4px;
         background: var(--secondary);
         border-radius: 50%;
         opacity: 0.5;
@@ -281,11 +281,11 @@
     .event-item:hover {
       background: rgba(255, 255, 255, 0.06);
       border-color: var(--primary);
-      transform: translateX(8px);
+      transform: translateX(5px);
     }
 
     .event-title {
-      font-size: 0.95rem;
+      font-size: 0.85rem; /* Reduced font size */
       font-weight: 400;
       color: #b4bcce;
     }
@@ -294,21 +294,22 @@
     .register-btn {
       display: block;
       width: 100%;
-      padding: 1rem;
+      padding: 0.8rem; /* Reduced padding */
       background: linear-gradient(45deg, var(--primary), #5b21b6);
       color: white;
       text-align: center;
       font-weight: 600;
+      font-size: 0.9rem;
       border-radius: 50px;
       text-decoration: none;
       transition: 0.4s;
-      box-shadow: 0 10px 20px rgba(112, 0, 255, 0.2);
+      box-shadow: 0 5px 15px rgba(112, 0, 255, 0.2);
       border: 1px solid rgba(255,255,255,0.1);
     }
 
     .register-btn:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(112, 0, 255, 0.4);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(112, 0, 255, 0.4);
       border-color: rgba(255,255,255,0.3);
     }
 
@@ -544,6 +545,46 @@
       setTimeout(() => {
         card.classList.add('visible');
       }, 100 + index * 100);
+    });
+
+    // --- Auto Scroll Logic ---
+    document.addEventListener('DOMContentLoaded', () => {
+        let scrollSpeed = 1; // Pixels per tick
+        let scrollDelay = 20; // Milliseconds
+        let scrollInterval;
+        let userInteracted = false;
+
+        function autoScroll() {
+            if (userInteracted) return;
+            
+            // Check if we've reached the bottom
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                stopAutoScroll();
+                return;
+            }
+
+            window.scrollBy(0, scrollSpeed);
+        }
+
+        function stopAutoScroll() {
+            userInteracted = true;
+            clearInterval(scrollInterval);
+            // Optional: Hide scroll indicator if it exists
+            const indicator = document.querySelector('.scroll-indicator');
+            if (indicator) indicator.style.display = 'none';
+        }
+
+        // Start scrolling after a short delay to let animations finish
+        setTimeout(() => {
+            if (!userInteracted) {
+                scrollInterval = setInterval(autoScroll, scrollDelay);
+            }
+        }, 2000);
+
+        // Stop on interaction
+        ['mousedown', 'wheel', 'touchstart', 'keydown'].forEach(evt => 
+            window.addEventListener(evt, stopAutoScroll, { once: true, passive: true })
+        );
     });
   </script>
 </body>
