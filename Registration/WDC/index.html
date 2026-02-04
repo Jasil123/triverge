@@ -394,6 +394,74 @@
       
       .event-card { padding: 1.5rem; }
     }
+
+    /* --- MODAL STYLES --- */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(3, 0, 20, 0.8);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s ease;
+    }
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .modal-content {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+      border: 1px solid var(--border-light);
+      border-radius: 24px;
+      padding: 2.5rem;
+      max-width: 450px;
+      width: 90%;
+      text-align: center;
+      transform: scale(0.8);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .modal-overlay.active .modal-content {
+      transform: scale(1);
+    }
+    .modal-icon {
+      font-size: 3rem;
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+    }
+    .modal-title {
+      font-family: var(--font-head);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+    .modal-text {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+    .modal-close-btn {
+      padding: 0.8rem 2.5rem;
+      background: linear-gradient(45deg, var(--primary), #5b21b6);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 10px 20px rgba(112, 0, 255, 0.2);
+    }
+    .modal-close-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px rgba(112, 0, 255, 0.4);
+    }
   </style>
 </head>
 <body>
@@ -472,11 +540,11 @@
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem; color: var(--text-muted);">
             <div class="contact-group">
                 <h4 style="color: white; margin-bottom: 0.8rem; font-size: 1.2rem;">Teacher Coordinators</h4>
-                <p><i class="fas fa-phone-alt" style="color: var(--primary); margin-right: 8px;"></i> +91 9562 324 294</p>
+                <p><i class="fas fa-phone-alt" style="color: var(--primary); margin-right: 8px;"></i> +91 9562 924 794</p>
             </div>
             <div class="contact-group">
                 <h4 style="color: white; margin-bottom: 0.8rem; font-size: 1.2rem;">Student Coordinators</h4>
-                <p><i class="fas fa-phone-alt" style="color: var(--secondary); margin-right: 8px;"></i> +91 8139 812 326</p>
+                <p><i class="fas fa-phone-alt" style="color: var(--secondary); margin-right: 8px;"></i> +91 8139 812 976</p>
             </div>
         </div>
     </div>
@@ -489,6 +557,46 @@
 
   </main>
 
+  <!-- Friendly Popup Modal -->
+  <div class="modal-overlay" id="teamModal">
+    <div class="modal-content">
+      <div class="modal-icon"><i class="fas fa-info-circle"></i></div>
+      <h3 class="modal-title">Important Note</h3>
+      <p class="modal-text">For team events, only one member per team needs to register.</p>
+      <button class="modal-close-btn" id="closeModal">Got it!</button>
+    </div>
+  </div>
+
   <script async src="https://tally.so/widgets/embed.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const modal = document.getElementById('teamModal');
+      const closeBtn = document.getElementById('closeModal');
+      
+      // Show modal with a small delay for better effect
+      setTimeout(() => {
+        modal.classList.add('active');
+      }, 800);
+
+      const closeModal = () => {
+        modal.classList.remove('active');
+      };
+
+      closeBtn.addEventListener('click', closeModal);
+
+      // Close on clicking overlay
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      // Close on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+          closeModal();
+        }
+      });
+    });
+  </script>
 </body>
-</html>
