@@ -420,13 +420,15 @@
         name: "Commerce & Management", 
         icon: "fa-briefcase", 
         link: "COMMERCE/", 
-        events: ["Best Manager", "Treasure Hunt", "Business Quiz", "Corporate Walk", "Marketing Game"] 
+        events: ["Best Manager", "Treasure Hunt", "Business Quiz", "Corporate Walk", "Marketing Game"],
+        closed: true
       },
       { 
         name: "Computer Science & Application", 
         icon: "fa-laptop-code", 
         link: "BCA/", 
-        events: ["Web Craft 2026", "Tech Expo (VR & Robotics)","e-Football Premium League","Spot Dance"] 
+        events: ["Web Craft 2026", "Tech Expo (VR & Robotics)","e-Football Premium League","Spot Dance"],
+        closed: true
       },
       { 
         name: "English & Literature", 
@@ -521,9 +523,15 @@
               </li>`;
             }).join('')}
           </ul>
-          <a href="${dept.link}" class="register-btn">
-            ${dept.name === 'General' ? 'Register Now' : 'Register Now'}
-          </a>
+          ${dept.closed ? `
+            <a href="${dept.link}" class="register-btn" style="background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); color: var(--text-muted); box-shadow: none;">
+              Registration Closed <i class="fas fa-calendar-check" style="margin-left: 8px;"></i>
+            </a>
+          ` : `
+            <a href="${dept.link}" class="register-btn">
+              Register Now
+            </a>
+          `}
         </div>
       `;
 

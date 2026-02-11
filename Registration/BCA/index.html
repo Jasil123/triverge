@@ -496,7 +496,9 @@
       <p class="dept-desc">
         Unleash your coding potential and explore the future of technology.
       </p>
-      <a href="#register" class="hero-btn">Register Now <i class="fas fa-chevron-right"></i></a>
+      <div class="hero-btn" style="background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); color: var(--text-muted); box-shadow: none; cursor: default;">
+        Registration Closed <i class="fas fa-calendar-check" style="margin-left: 8px;"></i>
+      </div>
     </div>
 
     <div class="section-label">Featured Events</div>
@@ -566,54 +568,25 @@
         </div>
     </div>
 
-    <!-- Registration Form -->
-    <div id="register" class="form-container">
-      <h2 class="form-title">Registration</h2>
-      <iframe data-tally-src="https://tally.so/embed/KYxgKD?hideTitle=1&dynamicHeight=1&transparentBackground=1" title="Registration Form"></iframe>
+    <!-- Registration Closed -->
+    <div id="register" class="form-container" style="text-align: center; border-color: var(--accent); background: rgba(255, 0, 122, 0.02);">
+      <div class="event-icon" style="width: 80px; height: 80px; font-size: 2.5rem; margin: 0 auto 2rem auto; background: rgba(255, 0, 122, 0.1); color: var(--accent);">
+        <i class="fas fa-calendar-times"></i>
+      </div>
+      <h2 class="form-title" style="margin-bottom: 1rem; background: linear-gradient(to right, #fff, var(--accent)); -webkit-background-clip: text;">Registration Closed</h2>
+      <p class="dept-desc" style="color: #fff;">
+        The Computer Science & Application events concluded on February 10th, 2026. 
+        <br><br>
+        Thank you for your overwhelming participation and enthusiasm! Registration for this department is now officially closed as the event is over.
+      </p>
     </div>
 
   </main>
 
-  <!-- Friendly Popup Modal -->
-  <div class="modal-overlay" id="teamModal">
-    <div class="modal-content">
-      <div class="modal-icon"><i class="fas fa-info-circle"></i></div>
-      <h3 class="modal-title">Important Note</h3>
-      <p class="modal-text">For team events, only one member per team needs to register.</p>
-      <button class="modal-close-btn" id="closeModal">Got it!</button>
-    </div>
-  </div>
-
   <script async src="https://tally.so/widgets/embed.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const modal = document.getElementById('teamModal');
-      const closeBtn = document.getElementById('closeModal');
-      
-      // Show modal with a small delay for better effect
-      setTimeout(() => {
-        modal.classList.add('active');
-      }, 800);
-
-      const closeModal = () => {
-        modal.classList.remove('active');
-      };
-
-      closeBtn.addEventListener('click', closeModal);
-
-      // Close on clicking overlay
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          closeModal();
-        }
-      });
-
-      // Close on Escape key
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
-          closeModal();
-        }
-      });
+      // Registration is closed - Modal removed as requested
     });
   </script>
 </body>
