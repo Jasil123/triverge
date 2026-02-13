@@ -6,7 +6,6 @@
     <title>Customized Event Registration - Powered by Google Forms</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Global Styles for Full Customization */
         * {
             margin: 0;
             padding: 0;
@@ -27,7 +26,6 @@
             overflow-x: hidden;
         }
 
-        /* Elegant Light Particles on Dark Background */
         body::before {
             content: '';
             position: fixed;
@@ -53,7 +51,6 @@
             100% { transform: translate(50px, -50px) rotate(360deg); }
         }
 
-        /* Subtle Gradient Overlay for Depth */
         .overlay {
             position: fixed;
             top: 0;
@@ -68,7 +65,6 @@
             z-index: -1;
         }
 
-        /* Premium Header - Fully Customized */
         header {
             text-align: center;
             margin-bottom: 3rem;
@@ -117,7 +113,6 @@
             margin: 0 auto;
         }
 
-        /* Event Details Section */
         .event-details {
             width: 100%;
             max-width: 800px;
@@ -215,7 +210,6 @@
             color: #ffffff;
         }
 
-        /* Highlighted Price in Registration Fee Item */
         .detail-item.fee-highlight {
             background: linear-gradient(135deg, rgba(218, 165, 32, 0.08), rgba(218, 165, 32, 0.03));
             border: 1px solid rgba(218, 165, 32, 0.3);
@@ -236,7 +230,6 @@
             100% { box-shadow: 0 5px 15px rgba(218, 165, 32, 0.2), 0 0 15px rgba(218, 165, 32, 0.2); }
         }
 
-        /* Register Now Button */
         .register-btn {
             display: block;
             width: 100%;
@@ -263,7 +256,6 @@
             background: linear-gradient(135deg, #DAA520, #228B22);
         }
 
-        /* Fully Customized Glassmorphism Container for Google Form Embed */
         .registration-section {
             width: 100%;
             max-width: 550px;
@@ -279,7 +271,7 @@
             position: relative;
             overflow: hidden;
             animation: fadeInUp 1s ease-out 0.5s both;
-            scroll-margin-top: 80px; /* Smooth scroll offset */
+            scroll-margin-top: 80px; 
         }
 
         @keyframes fadeInUp {
@@ -309,24 +301,21 @@
             z-index: 1;
         }
 
-        /* Seamless Google Form Iframe Styling - Increased Height for Scrolling */
         .google-form-embed {
             width: 100%;
-            height: 900px; /* Base height for desktop */
+            height: 900px; 
             border: none;
             border-radius: 24px;
             background: transparent;
             display: block;
-            filter: none; /* Ensures seamless integration */
+            filter: none; 
         }
 
-        /* Graphical User Interface Elements Around the Frame */
         .gui-elements {
             position: relative;
             z-index: 2;
         }
 
-        /* Progress Indicator (Graphical Bar) */
         .progress-indicator {
             position: absolute;
             top: 10px;
@@ -342,7 +331,7 @@
         .progress-bar {
             height: 100%;
             background: linear-gradient(90deg, #4B0082, #228B22, #DAA520);
-            width: 40%; /* Simulated progress; can be dynamic if needed */
+            width: 40%; 
             border-radius: 2px;
             animation: progressFill 4s ease-in-out infinite;
         }
@@ -352,7 +341,6 @@
             50% { width: 80%; }
         }
 
-        /* Side Icons (Graphical GUI) */
         .side-icons {
             position: absolute;
             top: 50%;
@@ -398,7 +386,6 @@
             50% { transform: translateY(-5px); opacity: 1; }
         }
 
-        /* Submit Button Overlay (Graphical Enhancement - Optional, as Google handles submit) */
         .submit-overlay {
             position: absolute;
             bottom: 20px;
@@ -414,7 +401,7 @@
             opacity: 0.9;
             transition: all 0.3s ease;
             z-index: 3;
-            pointer-events: none; /* Non-interactive overlay for visual only; Google form handles actual submit */
+            pointer-events: none; 
             font-size: clamp(0.9rem, 2vw, 1rem);
         }
 
@@ -424,7 +411,6 @@
             box-shadow: 0 5px 15px rgba(218, 165, 32, 0.4);
         }
 
-        /* Overlay for Custom Header Inside Form Area (Optional Fallback) */
         .form-header-overlay {
             position: absolute;
             top: 0;
@@ -449,7 +435,6 @@
             color: rgba(255, 255, 255, 0.7);
         }
 
-        /* Enhanced Responsive Adjustments */
         @media (max-width: 1024px) {
             body {
                 padding: 1.5rem;
@@ -569,7 +554,7 @@
             }
 
             .side-icons {
-                display: none; /* Hide side icons on tablets for more space */
+                display: none; 
             }
 
             .submit-overlay {
@@ -640,7 +625,7 @@
             }
 
             .progress-indicator {
-                display: none; /* Hide progress on very small screens */
+                display: none; 
             }
 
             .submit-overlay {
@@ -658,7 +643,6 @@
             }
         }
 
-        /* Loading Spinner for Form (Enhances UX) */
         .loading {
             display: none;
             position: absolute;
@@ -682,7 +666,6 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Ensure full viewport usage on very tall forms */
         @media (min-height: 1200px) {
             .google-form-embed {
                 height: 100vh;
@@ -694,13 +677,11 @@
 <body>
     <div class="overlay"></div>
 
-    <!-- Premium Header -->
     <header>
         <h1>Department Of Computer Application</h1>
         <p class="subtitle">Elevate your experience with seamless registration. All details are securely handled.</p>
     </header>
 
-    <!-- Event Details Section -->
     <section class="event-details">
         <div class="event-card">
             <h2 class="event-title">Event Overview</h2>
@@ -729,39 +710,32 @@
         </div>
     </section>
 
-    <!-- Registration Section -->
     <section id="registration" class="registration-section">
         <div class="gui-elements">
-            <!-- Progress Indicator -->
             <div class="progress-indicator">
                 <div class="progress-bar"></div>
             </div>
 
-            <!-- Left Side Icons (Graphical GUI) -->
             <div class="side-icons left">
                 <div class="gui-icon">📝</div>
                 <div class="gui-icon">✉️</div>
                 <div class="gui-icon">🏛️</div>
             </div>
 
-            <!-- Right Side Icons (Graphical GUI) -->
             <div class="side-icons right">
                 <div class="gui-icon">🔒</div>
                 <div class="gui-icon">📱</div>
                 <div class="gui-icon">✅</div>
             </div>
 
-            <!-- Visual Submit Button Overlay (Graphical Enhancement) -->
             <button class="submit-overlay">Submit Registration</button>
         </div>
 
-        <!-- Optional Overlay for Custom Branding on Top of Iframe -->
         <div class="form-header-overlay">
             <div class="form-title">Registration Form</div>
             <div class="form-desc">Fill in your details below – it takes just a minute. Scroll to submit.</div>
         </div>
 
-        <!-- Google Form Embed – Replace with Your Actual Embed URL -->
         <iframe 
             class="google-form-embed" 
             src="https://docs.google.com/forms/d/e/1FAIpQLSfsooTkv9E7fPOR9SmBVdfvN4sfX_pejuIz8QnpX_3L0ZCLCw/viewform?embedded=true" 
@@ -770,19 +744,14 @@
             style="opacity: 0; transition: opacity 0.5s ease;">
         </iframe>
 
-        <!-- Fallback Loading Indicator -->
         <div class="loading" id="loading">
             <div class="spinner"></div>
         </div>
     </section>
 
     <script>
-        // Initial Loading State
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelector('.loading').style.display = 'block';
-        });
+        document.querySelector('.loading').style.display = 'block';
 
-        // Smooth Scroll to Registration on Button Click
         document.querySelector('.register-btn').addEventListener('click', (e) => {
             e.preventDefault();
             document.querySelector('#registration').scrollIntoView({
@@ -791,7 +760,6 @@
             });
         });
 
-        // Smooth Scroll and Form Focus Enhancement
         const registrationSection = document.querySelector('.registration-section');
         registrationSection.addEventListener('click', (e) => {
             if (e.target === registrationSection) {
@@ -800,7 +768,6 @@
             }
         });
 
-        // Enhanced Responsive Height Adjustment for Iframe
         function adjustIframeHeight() {
             const iframe = document.querySelector('.google-form-embed');
             const windowHeight = window.innerHeight;
@@ -811,22 +778,18 @@
             } else if (window.innerWidth >= 480) {
                 iframe.style.height = '750px';
             } else {
-                iframe.style.height = `${Math.min(700, windowHeight * 0.85)}px`; // 85% of viewport on tiny screens
+                iframe.style.height = `${Math.min(700, windowHeight * 0.85)}px`; 
             }
         }
         window.addEventListener('resize', adjustIframeHeight);
         adjustIframeHeight();
 
-        // Simulate Google Form Submission Feedback (Client-Side Only)
-        // Note: Actual submission is handled by Google Forms
         const iframe = document.querySelector('.google-form-embed');
         window.addEventListener('message', (event) => {
             if (event.origin !== 'https://docs.google.com') return;
-            // Handle any post-submission messages if Google sends them
             console.log('Form interaction:', event.data);
         });
 
-        // Optional: Add scroll-to-bottom button functionality for easier submission
         const submitOverlay = document.querySelector('.submit-overlay');
         submitOverlay.addEventListener('click', () => {
             const iframe = document.querySelector('.google-form-embed');

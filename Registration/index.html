@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   
   <style>
-    /* --- THEME VARIABLES (Same as Main Site) --- */
     :root {
       --bg-dark: #030014;
       --bg-card: rgba(255, 255, 255, 0.03);
@@ -28,10 +27,9 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    /* --- MOBILE & SCROLL FIXES --- */
     html {
       width: 100%;
-      min-height: 100%; /* Changed from height: 100% for iOS support */
+      min-height: 100%; 
       overflow-x: hidden;
       background-color: var(--bg-dark);
       scroll-behavior: smooth;
@@ -48,7 +46,6 @@
       position: relative;
     }
 
-    /* --- BACKGROUND SYSTEM --- */
     .background-container {
       position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
       z-index: -1; overflow: hidden; pointer-events: none;
@@ -81,7 +78,6 @@
       100% { transform: translate(-5%, 2%) rotate(-5deg) scale(1); }
     }
 
-    /* --- HEADER / NAVBAR --- */
     header {
       position: fixed;
       top: 0; left: 0; width: 100%;
@@ -139,7 +135,6 @@
       transform: translateX(-3px);
     }
 
-    /* --- MAIN CONTENT --- */
     main { padding-top: 140px; padding-bottom: 4rem; }
 
     .hero-title {
@@ -155,23 +150,21 @@
       letter-spacing: -2px;
     }
 
-    /* --- DEPARTMENTS GRID --- */
     .departments-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Reduced min width */
-      gap: 1.5rem; /* Reduced gap */
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+      gap: 1.5rem; 
     }
 
-    /* --- GLASS CARD STYLING --- */
     .department-card {
       background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
       border: 1px solid var(--border-light);
-      border-radius: 16px; /* Reduced radius */
+      border-radius: 16px; 
       overflow: hidden;
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      opacity: 0; /* For animation */
+      opacity: 0; 
       transform: translateY(30px);
       position: relative;
       display: flex;
@@ -184,15 +177,14 @@
     }
 
     .department-card:hover {
-      transform: translateY(-5px); /* Reduced hover lift */
+      transform: translateY(-5px); 
       border-color: rgba(0, 210, 255, 0.5);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
       background: rgba(255, 255, 255, 0.08);
     }
 
-    /* Card Header */
     .dept-header {
-      padding: 1.2rem; /* Reduced padding */
+      padding: 1.2rem; 
       position: relative;
       background: linear-gradient(90deg, rgba(255,255,255,0.03), transparent);
       border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -204,7 +196,7 @@
 
     .dept-header h3 {
       font-family: var(--font-head);
-      font-size: 1.1rem; /* Reduced font size */
+      font-size: 1.1rem; 
       color: white;
       z-index: 2;
       display: flex;
@@ -216,7 +208,7 @@
     .icon-bg {
       position: absolute;
       right: -10px; bottom: -20px;
-      font-size: 4rem; /* Reduced icon size */
+      font-size: 4rem; 
       opacity: 0.03;
       color: white;
       transform: rotate(-15deg);
@@ -235,9 +227,8 @@
     }
     .collapsed .toggle-icon { transform: rotate(-90deg); }
 
-    /* Card Body */
     .dept-body {
-      padding: 1.2rem; /* Reduced padding */
+      padding: 1.2rem; 
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       max-height: 1000px;
       opacity: 1;
@@ -254,12 +245,11 @@
       overflow: hidden;
     }
 
-    /* Event Items */
     .events-list { list-style: none; margin-bottom: 1.5rem; flex-grow: 1; }
     
     .event-item {
       background: rgba(255, 255, 255, 0.02);
-      padding: 0.6rem 0.8rem; /* Reduced padding */
+      padding: 0.6rem 0.8rem; 
       margin-bottom: 0.5rem;
       border-radius: 8px;
       border: 1px solid rgba(255,255,255,0.05);
@@ -285,16 +275,15 @@
     }
 
     .event-title {
-      font-size: 0.85rem; /* Reduced font size */
+      font-size: 0.85rem; 
       font-weight: 400;
       color: #b4bcce;
     }
 
-    /* Register Button */
     .register-btn {
       display: block;
       width: 100%;
-      padding: 0.8rem; /* Reduced padding */
+      padding: 0.8rem; 
       background: linear-gradient(45deg, var(--primary), #5b21b6);
       color: white;
       text-align: center;
@@ -313,7 +302,6 @@
       border-color: rgba(255,255,255,0.3);
     }
 
-    /* --- SCROLL INDICATOR --- */
     .scroll-indicator {
       position: fixed;
       bottom: 30px;
@@ -357,7 +345,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* --- MOBILE RESPONSIVENESS --- */
     @media (max-width: 768px) {
       .hero-title { font-size: 3rem; margin-bottom: 3rem; }
       .departments-grid { grid-template-columns: 1fr; gap: 1.5rem; }
@@ -369,7 +356,6 @@
       .light-1 { width: 80vw; height: 80vw; }
       .light-2 { width: 60vw; height: 60vw; }
       
-      /* Disable collapsing on mobile for better UX */
       .dept-header { pointer-events: none; padding: 1.5rem; }
       .toggle-icon { display: none; }
       .dept-body { padding: 1.5rem; }
@@ -510,7 +496,6 @@
         <div class="dept-body">
           <ul class="events-list">
             ${dept.events.map(ev => {
-              // Try to split date if dash exists, else handle gracefully
               let title = ev;
               let date = "";
               if(ev.includes('–')) {
@@ -519,7 +504,6 @@
                   date = parts[1].trim();
               } else if(ev.includes('-')) {
                    const parts = ev.split('-');
-                   // Check if the part look like a date or just text
                    if (parts.length > 1 && parts[1].length < 15) {
                        title = parts[0].trim();
                        date = parts[1].trim();
@@ -544,7 +528,6 @@
         </div>
       `;
 
-      // Toggle Logic (Desktop Only)
       const header = card.querySelector('.dept-header');
       const body = card.querySelector('.dept-body');
       
@@ -558,36 +541,31 @@
 
       grid.appendChild(card);
 
-      // Animation Stagger
       setTimeout(() => {
         card.classList.add('visible');
       }, 100 + index * 100);
     });
 
-    // --- Auto Scroll Logic ---
     document.addEventListener('DOMContentLoaded', () => {
-        let scrollSpeed = 0.3; // Target pixels per frame
-        let scrollAccumulator = 0; // To handle sub-pixel scrolling
+        let scrollSpeed = 0.3; 
+        let scrollAccumulator = 0; 
         let userInteracted = false;
         let animationFrameId;
 
         function autoScroll() {
             if (userInteracted) return;
 
-            // Check if we've reached the bottom
             if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
                 userInteracted = true;
                 return;
             }
 
-            // Accumulate fractional pixels
             scrollAccumulator += scrollSpeed;
             
-            // If we have at least 1 whole pixel, scroll
             if (scrollAccumulator >= 1) {
                 const pixelsToScroll = Math.floor(scrollAccumulator);
                 window.scrollBy(0, pixelsToScroll);
-                scrollAccumulator -= pixelsToScroll; // Keep the remainder
+                scrollAccumulator -= pixelsToScroll; 
             }
 
             animationFrameId = requestAnimationFrame(autoScroll);
@@ -601,19 +579,16 @@
             if (indicator) indicator.style.opacity = '0';
         }
 
-        // Start scrolling after a delay
         setTimeout(() => {
-            if (!userInteracted && window.scrollY < 50) { // Only start if still at top
+            if (!userInteracted && window.scrollY < 50) { 
                 autoScroll();
             }
         }, 2500);
 
-        // Stop on interaction - Use standard events
         const events = ['mousedown', 'wheel', 'keydown', 'touchstart', 'touchmove', 'pointerdown'];
         
         events.forEach(evt => {
             window.addEventListener(evt, () => {
-                // For touch, we want to stop immediately on contact
                 stopAutoScroll();
             }, { once: true, passive: true });
         });

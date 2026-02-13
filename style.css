@@ -1,4 +1,3 @@
-/* --- Variables & Reset --- */
 :root {
   --bg-dark: #030014;
   --bg-card: rgba(255, 255, 255, 0.03);
@@ -16,7 +15,6 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
-/* FIX: Ensure HTML takes full height background to avoid white gaps */
 html {
   background-color: var(--bg-dark);
   height: 100%;
@@ -24,7 +22,7 @@ html {
 }
 
 body {
-  background-color: transparent; /* Make body transparent so fixed background shows through */
+  background-color: transparent; 
   color: var(--text-main);
   font-family: var(--font-body);
   line-height: 1.6;
@@ -34,7 +32,6 @@ body {
   min-height: 100%;
 }
 
-/* --- Offer Banner --- */
 .offer-banner {
     background: rgba(3, 0, 20, 0.95);
     backdrop-filter: blur(10px);
@@ -90,8 +87,6 @@ body {
     vertical-align: middle;
 }
 
-/* --- BACKGROUND SYSTEM (The "Desktop Look" for Mobile) --- */
-/* We create a fixed container for background elements so they don't move/resize on scroll */
 .background-container {
   position: fixed;
   top: 0;
@@ -100,14 +95,13 @@ body {
   height: 100vh;
   z-index: -1;
   overflow: hidden;
-  pointer-events: none; /* Allows click-through */
+  pointer-events: none; 
 }
 
-/* Animated Ambient Lights */
 .ambient-light {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px); /* Slightly reduced blur for performance */
+  filter: blur(80px); 
   opacity: 0.4;
   animation: floatLight 10s infinite alternate;
 }
@@ -125,7 +119,6 @@ body {
   animation-delay: 5s; 
 }
 
-/* Grid Overlay */
 .grid-overlay {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -144,7 +137,6 @@ body {
   100% { transform: translate(50px, 50px) scale(1.1); }
 }
 
-/* --- Typography --- */
 h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; }
 .gradient-text {
   background: linear-gradient(135deg, #fff 0%, var(--secondary) 100%);
@@ -153,7 +145,6 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; }
 }
 a { text-decoration: none; color: inherit; transition: 0.3s; }
 
-/* --- Navbar --- */
 .navbar {
   position: fixed;
   top: var(--banner-height);
@@ -184,7 +175,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
   font-family: var(--font-head);
   font-weight: 700;
   letter-spacing: -1px;
-  display: flex; /* Align items */
+  display: flex; 
   align-items: center;
 }
 .logo .highlight { color: var(--secondary); }
@@ -218,11 +209,9 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 }
 .nav-cta-small:hover { background: var(--primary); border-color: var(--primary); }
 
-/* --- Hamburger --- */
 .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
 .bar { width: 25px; height: 2px; background: white; transition: 0.3s; }
 
-/* --- Hero Section --- */
 #hero {
   min-height: 100vh;
   display: flex;
@@ -290,21 +279,18 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 }
 .btn-outline:hover { background: rgba(255,255,255,0.05); border-color: white; }
 
-/* Scroll Indicator */
 .scroll-indicator {
   position: absolute; bottom: 30px; display: flex; flex-direction: column; align-items: center; gap: 10px;
   color: var(--text-muted); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;
 }
 .scroll-indicator .line { width: 1px; height: 50px; background: linear-gradient(to bottom, var(--secondary), transparent); }
 
-/* --- General Section Styles --- */
 .section { padding: 80px 20px; }
 .container { max-width: 1100px; margin: 0 auto; }
 .section-header { text-align: center; margin-bottom: 3rem; }
 .section-header h2 { font-size: 2.5rem; margin-bottom: 0.5rem; }
 .section-header p { color: var(--text-muted); }
 
-/* Glass Panel Utility */
 .glass-panel {
   background: var(--bg-card);
   backdrop-filter: blur(12px);
@@ -315,13 +301,11 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
   transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* --- About Grid --- */
 .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
 .about-card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.06); border-color: var(--secondary); }
 .card-icon { font-size: 2rem; color: var(--secondary); margin-bottom: 1rem; }
 .stats-row { display: flex; justify-content: space-between; margin-top: 1.5rem; color: #fff; }
 
-/* --- Themes --- */
 .themes-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
 .theme-card { position: relative; overflow: hidden; text-align: center; padding: 3rem 1rem; border-radius: 20px; }
 .theme-card .content { position: relative; z-index: 2; }
@@ -335,7 +319,6 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 .strat-bg { background: radial-gradient(circle at center, #7000ff, transparent 70%); }
 .theme-card:hover .theme-bg { opacity: 0.3; transform: scale(1.2); }
 
-/* --- Departments Tabs --- */
 .tabs-container { padding: 2rem; }
 .tabs-header { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
 .tab-btn {
@@ -359,7 +342,6 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 .card-link { color: white; font-size: 0.9rem; font-weight: 600; display: inline-flex; align-items: center; gap: 5px; }
 .card-link:hover { color: var(--secondary); gap: 10px; }
 
-/* --- Timeline --- */
 .timeline-wrapper { position: relative; max-width: 800px; margin: 0 auto; padding: 20px 0; }
 .timeline-line { position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--primary), var(--secondary)); transform: translateX(-50%); }
 .timeline-entry { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; width: 100%; }
@@ -374,7 +356,6 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 .timeline-entry.right .entry-content { text-align: left; }
 .entry-content h3 { color: var(--primary); margin-bottom: 0.5rem; }
 
-/* Timeline List Styles */
 .timeline-events {
   list-style: none;
   margin-bottom: 1rem;
@@ -389,7 +370,6 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
   border-bottom: none;
 }
 
-/* Small Register Button */
 .btn-small-register {
   display: inline-flex;
   align-items: center;
@@ -411,7 +391,6 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
   transform: translateX(5px);
 }
 
-/* --- Contact & Footer --- */
 .contact-box { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding: 0; overflow: hidden; }
 .contact-text { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
 .contact-text h2 { margin-bottom: 2rem; }
@@ -424,7 +403,6 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 
 footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border-light); font-size: 0.9rem; color: var(--text-muted); }
 
-/* --- Animations --- */
 .fade-up { opacity: 0; transform: translateY(30px); animation: fadeUpAnim 0.8s forwards; }
 .delay-1 { animation-delay: 0.2s; }
 .delay-2 { animation-delay: 0.4s; }
@@ -437,7 +415,6 @@ footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border-l
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-/* --- Mobile Responsiveness --- */
 @media (max-width: 768px) {
   :root {
     --banner-height: 54px;
@@ -446,8 +423,6 @@ footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border-l
     font-size: 0.75rem;
     padding: 8px 15px;
   }
-  /* MOBILE BACKGROUND FIX: */
-  /* We resize the lights but keep the animation full and lush - adjusted positions to avoid negative offsets causing viewport expansion */
   .light-1 { width: 300px; height: 300px; left: 0; top: 0; }
   .light-2 { width: 250px; height: 250px; right: 0; bottom: 0; }
   
@@ -473,13 +448,11 @@ footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border-l
   .hamburger.active .bar:nth-child(2) { opacity: 0; }
   .hamburger.active .bar:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-  /* Additional mobile fixes for horizontal overflow */
-  .nav-container { padding: 0 max(10px, 5vw); } /* Responsive padding to prevent overflow on tiny screens */
+  .nav-container { padding: 0 max(10px, 5vw); } 
   #hero { padding-left: max(10px, 5vw); padding-right: max(10px, 5vw); }
   .section { padding-left: max(10px, 5vw); padding-right: max(10px, 5vw); }
 }
 
-/* --- Identity / Logo Section --- */
 .identity-wrapper {
   text-align: center;
   position: relative;
@@ -567,7 +540,6 @@ footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border-l
   .identity-logo { width: 120px; }
 }
 
-/* --- Brochure / Downloads Section --- */
 .brochure-wrapper {
   text-align: center;
   overflow: hidden;
@@ -579,11 +551,10 @@ footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border-l
 
 .carousel-container {
   width: 100%;
-  max-width: 800px; /* Constraint width */
+  max-width: 800px; 
   overflow: hidden;
   margin-bottom: 2.5rem;
   position: relative;
-  /* fade edges for smooth look */
   mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
@@ -592,10 +563,6 @@ footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border-l
   display: flex;
   gap: 20px;
   width: max-content;
-  /* We will duplicate images to make it seamless. 
-     If we have 2 images repeated twice (4 total), 
-     scrolling -50% (width of 2 images + gaps) resets it. 
-  */
   animation: scrollMarquee 15s linear infinite;
 }
 
@@ -625,7 +592,7 @@ footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border-l
 
 @keyframes scrollMarquee {
   0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-50% - 10px)); } /* Adjust for gap */
+  100% { transform: translateX(calc(-50% - 10px)); } 
 }
 
 @media (max-width: 768px) {

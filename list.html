@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Additional styles for this page if needed */
         #departments-list {
             background: #0a0a0a;
             min-height: 100vh;
@@ -63,7 +62,6 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="logo">Triverge</div>
@@ -84,7 +82,6 @@
         </div>
     </nav>
 
-    <!-- Departments List Section -->
     <section id="departments-list" class="section">
         <div class="container">
             <h2 class="neon-gradient text-center mb-4" style="font-size: 2.5rem;">Select Your Department</h2>
@@ -118,14 +115,12 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 Triverge. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
     <script>
-        // Override smooth scrolling for external links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 if (this.getAttribute('href') !== '#') {
@@ -138,7 +133,6 @@
             });
         });
 
-        // Fade-in for cards
         const fadeObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {

@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   
   <style>
-    /* --- THEME VARIABLES --- */
+    
     :root {
       --bg-dark: #030014;
       --bg-card: rgba(255, 255, 255, 0.03);
@@ -47,7 +47,7 @@
       position: relative;
     }
 
-    /* --- BACKGROUND SYSTEM --- */
+    
     .background-container {
       position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
       z-index: -1; overflow: hidden; pointer-events: none;
@@ -80,7 +80,7 @@
       100% { transform: translate(-5%, 2%) rotate(-5deg) scale(1); }
     }
 
-    /* --- HEADER / NAVBAR --- */
+    
     header {
       position: fixed;
       top: 0; left: 0; width: 100%;
@@ -137,7 +137,7 @@
       transform: translateX(-3px);
     }
 
-    /* --- MAIN CONTENT --- */
+    
     main { padding-top: 140px; padding-bottom: 4rem; }
 
     .dept-hero {
@@ -200,7 +200,7 @@
         color: white;
     }
 
-    /* --- EVENTS LIST --- */
+    
     .section-label {
       font-family: var(--font-head);
       font-size: 0.9rem;
@@ -308,7 +308,7 @@
       font-family: var(--font-head);
     }
 
-    /* --- FORM SECTION --- */
+    
     .form-container {
       background: rgba(255, 255, 255, 0.02);
       border: 1px solid var(--border-light);
@@ -331,7 +331,7 @@
       -webkit-text-fill-color: transparent;
     }
     
-    /* --- FORM LOADER --- */
+    
     .form-loader {
       position: absolute;
       top: 0;
@@ -344,8 +344,8 @@
       align-items: center;
       gap: 1rem;
       z-index: 50;
-      background: rgba(3, 0, 20, 0.6); /* Semi-transparent background */
-      border-radius: 32px; /* Match container border radius */
+      background: rgba(3, 0, 20, 0.6); 
+      border-radius: 32px; 
       pointer-events: none;
       transition: opacity 0.3s ease;
     }
@@ -355,8 +355,8 @@
       height: 50px;
       border: 4px solid rgba(255, 255, 255, 0.2);
       border-radius: 50%;
-      border-top-color: #00d2ff; /* Explicit color */
-      box-shadow: 0 0 15px rgba(0, 210, 255, 0.5); /* Glow effect */
+      border-top-color: #00d2ff; 
+      box-shadow: 0 0 15px rgba(0, 210, 255, 0.5); 
       animation: spin 1s cubic-bezier(0.55, 0.055, 0.675, 0.19) infinite;
     }
 
@@ -392,7 +392,7 @@
       opacity: 1 !important;
     }
 
-    /* --- SCROLL INDICATOR --- */
+    
     .scroll-indicator {
       position: fixed;
       bottom: 30px;
@@ -455,7 +455,7 @@
       .event-card { padding: 1.5rem; }
     }
 
-    /* --- MODAL STYLES --- */
+    
     .modal-overlay {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
@@ -549,7 +549,7 @@
 
   <main class="container">
     
-    <!-- Hero Section -->
+    
     <div class="dept-hero">
       <div class="dept-badge">Department Event</div>
       <h1 class="dept-title">Commerce & Management</h1>
@@ -568,7 +568,7 @@
       <div class="scroll-arrow"></div>
     </div>
 
-    <!-- Events Grid -->
+    
     <div class="events-wrapper">
       
       <div class="event-card">
@@ -627,9 +627,9 @@
 
     </div>
 
-    <!-- Contact Info -->
+    
 
-    <!-- Registration Closed -->
+    
     <div id="register" class="form-container" style="text-align: center; border-color: var(--accent); background: rgba(255, 0, 122, 0.02);">
       <div class="event-icon" style="width: 80px; height: 80px; font-size: 2.5rem; margin: 0 auto 2rem auto; background: rgba(255, 0, 122, 0.1); color: var(--accent);">
         <i class="fas fa-calendar-times"></i>
@@ -647,7 +647,7 @@
   <script async src="https://tally.so/widgets/embed.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Registration is closed
+      
     });
   </script>
 </body>
